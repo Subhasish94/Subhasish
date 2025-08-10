@@ -18,7 +18,21 @@ html, body {
   flex-direction: column;
   padding: 10px;
 }
-
+.logo img{
+  width: 150px;
+  height: auto;
+}
+  .logo {
+    border-radius: 20px;
+   background: #00ffff;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #00ffff;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 9px 17px 48px rgba(0, 255, 255, 0.4);
+    backdrop-filter: blur(19px);
+}
 /* Main countdown box */
 .countdown {
   z-index: 2;
@@ -29,7 +43,7 @@ html, body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(0, 255, 255, 0.2);
-  max-width: 90%;
+  max-width: 440px;
 }
 
 /* Typing animation text */
@@ -39,6 +53,7 @@ html, body {
   color: #00ffff;
   min-height: 1.2em;
   margin-bottom: 20px;
+  height: 64px;
 }
 
 /* Timer & Current Time */

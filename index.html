@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Coming Soon</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+  <div class="logo">
+    <img src="logo.svg" alt="Logo">
+  </div>
   <div class="countdown">
     <div class="typing" id="typing-text"></div>
     <div id="timer">Loading countdown...</div>
+    <div class="clock-container">
+      <h1>
+        <span id="clock">00:00:00</span> <span id="ampm" >AM</span>
+      </h1>
+    </div>
     <!-- <div id="current-time">Loading time...</div> -->
   </div>
 
   <div class="stars" id="stars"></div>
-<script src="js/custom.js"></script>
+  <script src="js/custom.js"></script>
 
 </body>
+
 </html>
