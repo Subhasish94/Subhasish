@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tech 2050 - Future UI with Holographic Banner</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            font-family: 'Orbitron', monospace;
+            background: #0a0a0a;
+            color: #0ff;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: radial-gradient(ellipse at center, #050b11 0%, #000000 70%);
+        }
+
+        /* Digital grid background */
+        #digitalGrid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background:
+                linear-gradient(0deg, #0ff 1px, transparent 1px),
+                linear-gradient(90deg, #0ff 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: gridMove 15s linear infinite;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            0% {
+                background-position: 0 0, 0 0;
+            }
+
+            100% {
+                background-position: 40px 40px, 40px 40px;
+            }
+        }
+
+        /* HEADER with hologram banner */
+        header {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1200px;
+            height: 180px;
+            color: #0ff;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 6px;
+            text-shadow:
+                0 0 10px #0ff,
+                0 0 25px #0ff;
+            user-select: none;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #0ff4;
+            box-shadow: 0 0 30px #0ff8 inset;
+            overflow: hidden;
+        }
+
+        /* Overlay text on banner */
+        #bannerText {
+            position: absolute;
+            z-index: 4;
+            pointer-events: none;
+            user-select: none;
+            font-family: 'Orbitron', monospace;
+            font-weight: 900;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            color: #0ff;
+            text-shadow:
+                0 0 10px #0ff,
+                0 0 20px #0ff,
+                0 0 40px #0ff;
+            letter-spacing: 8px;
+            mix-blend-mode: screen;
+        }
+
+        /* Three.js canvas fills header */
+        #banner3d {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Main container */
+        #main {
+            position: relative;
+            z-index: 2;
+            margin-top: 180px;
+            /* below header */
+            width: 90vw;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0 4rem;
+            max-height: calc(100vh - 180px);
+            overflow-y: auto;
+        }
+
+        /* Card styles */
+        .techCard {
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid #0ff;
+            border-radius: 15px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 0 5px #0ff, 0 0 20px #0ff5 inset;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .techCard:hover {
+            transform: scale(1.05);
+            box-shadow:
+                0 0 10px #0ff,
+                0 0 40px #0ff inset;
+        }
+
+        /* Card title */
+        .techTitle {
+            font-size: 1.7rem;
+            letter-spacing: 2px;
+            color: #0ff;
+            margin-bottom: 1rem;
+            text-shadow:
+                0 0 6px #0ff,
+                0 0 20px #0ff;
+        }
+
+        /* Card description */
+        .techDesc {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: #a0ffff;
+            flex-grow: 1;
+            margin-bottom: 1.4rem;
+        }
+
+        /* Neon glowing buttons */
+        .techBtn {
+            background: transparent;
+            border: 1.5px solid #0ff;
+            border-radius: 12px;
+            color: #0ff;
+            font-weight: 600;
+            padding: 0.6rem 1.4rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 0 6px #0ff;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            user-select: none;
+            align-self: flex-start;
+        }
+
+        .techBtn:hover {
+            background-color: #0ff1a;
+            box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #0ff7;
+            font-size: 0.85rem;
+            font-family: monospace;
+            z-index: 3;
+            user-select: none;
+        }
+
+        /* Scrollbar for main container */
+        #main::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #main::-webkit-scrollbar-thumb {
+            background: #0ff9;
+            border-radius: 10px;
+            box-shadow: 0 0 6px #0ff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="digitalGrid"></div>
+
+    <header>
+        <canvas id="banner3d"></canvas>
+        <div id="bannerText">TECHNOLOGY 2050</div>
+    </header>
+
+    <main id="main">
+        <section class="techCard">
+            <h2 class="techTitle">Quantum Computing</h2>
+            <p class="techDesc">Harnessing quantum bits for unparalleled processing speed, solving problems previously
+                impossible for classical computers.</p>
+            <button class="techBtn"
+                onclick="alert('Quantum Computing: Revolutionizing data processing with qubits!')">Learn More</button>
+        </section>
+
+        <section class="techCard">
+            <h2 class="techTitle">AI Neural Symbiosis</h2>
+            <p class="techDesc">Seamless integration of AI with human neural pathways to enhance cognition, memory, and
+                creativity in real-time.</p>
+            <button class="techBtn" onclick="alert('AI Neural Symbiosis: The future of human-AI collaboration!')">Learn
+                More</button>
+        </section>
+
+        <section class="techCard">
+            <h2 class="techTitle">Holographic Interfaces</h2>
+            <p class="techDesc">Immersive 3D holograms replacing screens, enabling spatial interaction and
+                multi-dimensional data visualization.</p>
+            <button class="techBtn"
+                onclick="alert('Holographic Interfaces: Next-level interaction beyond screens!')">Learn More</button>
+        </section>
+
+        <section class="techCard">
+            <h2 class="techTitle">Nano Medicine</h2>
+            <p class="techDesc">Targeted nano-robots that diagnose and repair cells from within, eradicating diseases at
+                the molecular level.</p>
+            <button class="techBtn" onclick="alert('Nano Medicine: Healing from inside the body with precision!')">Learn
+                More</button>
+        </section>
+
+        <section class="techCard">
+            <h2 class="techTitle">Space Elevators</h2>
+            <p class="techDesc">Revolutionary transportation tech to ascend to orbit without rockets, making space more
+                accessible and sustainable.</p>
+            <button class="techBtn" onclick="alert('Space Elevators: Opening the gateway to the stars!')">Learn
+                More</button>
+        </section>
+
+        <section class="techCard">
+            <h2 class="techTitle">Sentient Robotics</h2>
+            <p class="techDesc">Robots capable of self-awareness, empathy, and adaptive learning, partnering humans in
+                everyday and extreme tasks.</p>
+            <button class="techBtn" onclick="alert('Sentient Robotics: Machines with mind and heart!')">Learn
+                More</button>
+        </section>
+    </main>
+
+    <footer>© 2050 Future Tech Innovations</footer>
+
+    <!-- THREE.JS from CDN ES Module -->
+    <script type="module">
+        import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js';
+        import { WireframeGeometry } from 'https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/geometries/WireframeGeometry.js';
+
+        const canvas = document.getElementById('banner3d');
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+        renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+
+        // Scene and camera
+        const scene = new THREE.Scene();
+
+        const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
+        camera.position.z = 5;
+
+        // Create a wireframe globe (sphere)
+        const geometry = new THREE.SphereGeometry(1.5, 32, 32);
+        const wireframe = new WireframeGeometry(geometry);
+
+        const lineMaterial = new THREE.LineBasicMaterial({
+            color: 0x00ffff,
+            linewidth: 2,
+            opacity: 0.7,
+            transparent: true,
+            blending: THREE.AdditiveBlending
+        });
+
+        const lines = new THREE.LineSegments(wireframe, lineMaterial);
+        scene.add(lines);
+
+        // Glow effect: subtle point light
+        const pointLight = new THREE.PointLight(0x00ffff, 1, 10);
+        pointLight.position.set(2, 2, 2);
+        scene.add(pointLight);
+
+        // Resize handling
+        function onResize() {
+            const width = canvas.clientWidth;
+            const height = canvas.clientHeight;
+            renderer.setSize(width, height, false);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+        }
+        window.addEventListener('resize', onResize);
+        onResize();
+
+        // Animate rotation
+        function animate() {
+            requestAnimationFrame(animate);
+
+            lines.rotation.y += 0.005;
+            lines.rotation.x += 0.002;
+
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+
+</body>
+
+</html>
