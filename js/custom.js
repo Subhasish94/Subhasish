@@ -42,7 +42,7 @@ function updateCountdown() {
     let minutes = Math.floor((diff / (1000 * 60)) % 60);
     let seconds = Math.floor((diff / 1000) % 60);
 
-    timer.innerHTML = "Launch In: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+    timer.innerHTML = "Launch In: " + days + "D " + hours + "H " + minutes + "M " + seconds + "S";
 }
 
 updateCountdown();
@@ -76,3 +76,63 @@ function updateClock() {
 
 setInterval(updateClock, 1000);
 updateClock();
+
+
+// === JS: Starfield animation setup ===
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resize() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    // === JS: Create stars array with random properties ===
+    const starsCount = 200;
+    const stars = [];
+
+    function randomRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    for (let i = 0; i < starsCount; i++) {
+      stars.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: randomRange(0.4, 1.3),
+        alpha: randomRange(0.3, 1),
+        alphaChange: randomRange(0.001, 0.005),
+        speed: randomRange(0.1, 0.4)
+      });
+    }
+
+    // === JS: Main animation loop for stars twinkling and moving ===
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+
+      for (let star of stars) {
+        star.y += star.speed;
+        if (star.y > height) star.y = 0;
+
+        star.alpha += star.alphaChange;
+        if (star.alpha <= 0.3 || star.alpha >= 1) star.alphaChange *= -1;
+
+        ctx.beginPath();
+        let glow = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, star.radius * 3);
+        glow.addColorStop(0, `rgba(255, 255, 255, ${star.alpha})`);
+        glow.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.fillStyle = glow;
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();

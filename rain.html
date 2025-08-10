@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neon Clock with White Neon Rain</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      overflow: hidden;
+      font-family: 'Orbitron', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      position: relative;
+      color: #0ff;
+    }
+
+    .clock-container {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+    }
+
+    #clock {
+      font-size: 5rem;
+      color: #0ff;
+      text-shadow:
+        0 0 5px #0ff,
+        0 0 10px #0ff,
+        0 0 20px #0ff,
+        0 0 40px #0ff;
+    }
+
+    #ampm {
+      font-size: 2rem;
+      color: #f0f;
+      text-shadow:
+        0 0 5px #f0f,
+        0 0 10px #f0f,
+        0 0 20px #f0f;
+      margin-left: 10px;
+      vertical-align: super;
+    }
+
+    /* White neon raindrop shape using clip-path */
+    .raindrop {
+      position: absolute;
+      width: 4px;
+      height: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(200,200,200,0.6));
+      clip-path: polygon(
+        50% 0%, 
+        85% 30%, 
+        100% 70%, 
+        50% 100%, 
+        0% 70%, 
+        15% 30%
+      );
+      filter:
+        drop-shadow(0 0 6px #fff)
+        drop-shadow(0 0 10px #fff)
+        drop-shadow(0 0 14px #ccc);
+      opacity: 0.75;
+      pointer-events: none;
+      animation-timing-function: linear;
+      transform-origin: center bottom;
+      transform: rotate(10deg);
+      will-change: transform, opacity;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-30px) rotate(10deg) scale(1);
+        opacity: 0.75;
+        filter: drop-shadow(0 0 14px #fff);
+      }
+      80% {
+        opacity: 0.75;
+        filter: drop-shadow(0 0 14px #fff);
+      }
+      100% {
+        transform: translateY(110vh) rotate(10deg) scale(0.9);
+        opacity: 0;
+        filter: drop-shadow(0 0 5px #ccc);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="clock-container">
+    <h1>
+      <span id="clock">00:00:00</span><span id="ampm">AM</span>
+    </h1>
+  </div>
+
+  <script>
+    // Update clock every second
+    function updateClock() {
+      const clock = document.getElementById('clock');
+      const ampm = document.getElementById('ampm');
+      const now = new Date();
+
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      let seconds = now.getSeconds();
+
+      let period = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12 || 12;
+
+      let h = hours.toString().padStart(2, '0');
+      let m = minutes.toString().padStart(2, '0');
+      let s = seconds.toString().padStart(2, '0');
+
+      clock.textContent = `${h}:${m}:${s}`;
+      ampm.textContent = period;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    // Create and animate raindrop
+    function createRaindrop() {
+      const drop = document.createElement('div');
+      drop.classList.add('raindrop');
+      drop.style.left = `${Math.random() * window.innerWidth}px`;
+      drop.style.top = `-30px`;
+
+      const duration = 2 + Math.random() * 3; // 2-5 seconds
+      drop.style.animation = `fall ${duration}s linear forwards`;
+
+      document.body.appendChild(drop);
+
+      setTimeout(() => {
+        drop.remove();
+      }, duration * 1000);
+    }
+
+    // Generate raindrops continuously
+    function raindropRain() {
+      setInterval(() => {
+        const count = 6 + Math.floor(Math.random() * 6); // 6-11 drops every interval
+        for(let i = 0; i < count; i++) {
+          setTimeout(createRaindrop, i * 70);
+        }
+      }, 250);
+    }
+
+    raindropRain();
+  </script>
+
+</body>
+</html>
+
