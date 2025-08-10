@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terminal</title>
+
+  <style>
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+      color: #0f0;
+      font-family: 'Courier New', Courier, monospace;
+      overflow: hidden;
+      display: flex;
+      user-select: none;
+    }
+
+    /* Container layout */
+    #container {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+    }
+
+    /* Left info panel */
+    #infoPanel {
+      width: 320px;
+      background: #001000;
+      padding: 15px 20px;
+      border-right: 1px solid #0f0;
+      display: flex;
+      flex-direction: column;
+      color: #0f0;
+      font-size: 14px;
+    }
+
+    #infoPanel h2 {
+      margin-top: 0;
+      font-weight: normal;
+      font-size: 22px;
+      text-align: center;
+      letter-spacing: 2px;
+    }
+
+    #infoList {
+      list-style: none;
+      padding-left: 10px;
+      margin: 10px 0 0 0;
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    #infoList li {
+      margin-bottom: 10px;
+      padding-left: 10px;
+      position: relative;
+    }
+
+    #infoList li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #0f0;
+      opacity: 0.6;
+    }
+
+    .bar-container {
+      width: 100%;
+      background: #003300;
+      border: 1px solid #0f0;
+      height: 15px;
+      border-radius: 4px;
+      margin-top: 4px;
+      position: relative;
+    }
+
+    .bar-fill {
+      background: #0f0;
+      height: 100%;
+      width: 0;
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+
+    /* Terminal panel */
+    #terminalPanel {
+      flex-grow: 1;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #terminalOutput {
+      flex-grow: 1;
+      overflow-y: auto;
+      font-size: 16px;
+      line-height: 1.3;
+      white-space: pre-wrap;
+    }
+
+    #cmdInput {
+      background: transparent;
+      border: none;
+      border-top: 1px solid #0f0;
+      color: #0f0;
+      font-family: monospace;
+      font-size: 18px;
+      padding: 10px 0 5px 0;
+      outline: none;
+      width: 100%;
+    }
+
+    #cmdInput::placeholder {
+      color: #0a0;
+    }
+
+    /* Glitch overlay */
+    #glitch {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      mix-blend-mode: screen;
+      background:
+        repeating-linear-gradient(0deg,
+          rgba(0, 255, 0, 0.03),
+          rgba(0, 255, 0, 0.03) 1px,
+          transparent 1px,
+          transparent 2px),
+        repeating-linear-gradient(90deg,
+          rgba(0, 255, 0, 0.02),
+          rgba(0, 255, 0, 0.02) 1px,
+          transparent 1px,
+          transparent 3px);
+      animation: glitchNoise 1s infinite;
+      z-index: 50;
+    }
+
+    @keyframes glitchNoise {
+      0% {
+        background-position: 0 0, 0 0;
+      }
+
+      25% {
+        background-position: 5px 5px, -5px -5px;
+      }
+
+      50% {
+        background-position: 0 0, 0 0;
+      }
+
+      75% {
+        background-position: -5px -5px, 5px 5px;
+      }
+
+      100% {
+        background-position: 0 0, 0 0;
+      }
+    }
+
+    /* Scrollbar styling for info list and terminal output */
+    #infoList::-webkit-scrollbar,
+    #terminalOutput::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #infoList::-webkit-scrollbar-track,
+    #terminalOutput::-webkit-scrollbar-track {
+      background: #002200;
+    }
+
+    #infoList::-webkit-scrollbar-thumb,
+    #terminalOutput::-webkit-scrollbar-thumb {
+      background: #0f0;
+      border-radius: 4px;
+    }
+
+    /* Terminal typing cursor */
+    .typing-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 18px;
+      background: #0f0;
+      animation: blink 1s step-start infinite;
+      margin-left: 2px;
+      vertical-align: bottom;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    /* Radar Canvas container */
+    #radarContainer {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      height: 300px;
+      border: 1px solid #0f0;
+      border-radius: 50%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    /* Custom Onscreen Keyboard */
+    #keyboard {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #001000;
+      border: 1px solid #0f0;
+      border-radius: 6px;
+      padding: 10px 12px;
+      display: flex;
+      flex-wrap: wrap;
+      width: 600px;
+      user-select: none;
+      z-index: 100;
+    }
+
+    .key {
+      background: #003300;
+      border: 1px solid #0f0;
+      border-radius: 4px;
+      color: #0f0;
+      font-family: monospace;
+      font-size: 18px;
+      padding: 10px 14px;
+      margin: 5px 6px;
+      cursor: pointer;
+      flex: 1 0 45px;
+      text-align: center;
+      transition: background 0.2s ease;
+      user-select: none;
+    }
+
+    .key:active {
+      background: #0f0;
+      color: #000;
+    }
+
+    .key.wide {
+      flex: 1 0 100px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      #container {
+        flex-direction: column;
+      }
+
+      #infoPanel {
+        width: 100%;
+        height: 120px;
+        border-right: none;
+        border-bottom: 1px solid #0f0;
+        padding: 10px 15px;
+        font-size: 13px;
+        flex-shrink: 0;
+        overflow-y: auto;
+      }
+
+      #infoList {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 5px 0 0 0;
+        padding-left: 0;
+        overflow-y: visible;
+      }
+
+      #infoList li {
+        margin: 4px 12px 4px 0;
+        padding-left: 0;
+      }
+
+      #terminalPanel {
+        flex-grow: 1;
+        height: calc(100vh - 120px);
+        padding: 15px 10px;
+      }
+
+      #terminalOutput {
+        font-size: 14px;
+      }
+
+      #cmdInput {
+        font-size: 16px;
+      }
+
+      /* Keyboard */
+      #keyboard {
+        width: 100%;
+        max-width: 100%;
+        padding: 8px 6px;
+        bottom: 0;
+        left: 0;
+        transform: none;
+        flex-wrap: wrap;
+      }
+
+      .key {
+        flex: 1 0 40px;
+        font-size: 16px;
+        padding: 8px 10px;
+        margin: 4px 5px;
+      }
+
+      .key.wide {
+        flex: 1 0 80px;
+      }
+
+      #keySpace {
+        flex: 1 0 180px !important;
+      }
+
+      /* Radar container */
+      #radarContainer {
+        position: static;
+        margin-top: 10px;
+        width: 100%;
+        max-width: 280px;
+        height: 280px;
+        border-radius: 10px;
+        border: 1px solid #0f0;
+        pointer-events: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      body,
+      html {
+        font-size: 14px;
+      }
+
+      #infoPanel {
+        height: 100px;
+        font-size: 12px;
+      }
+
+      #terminalOutput {
+        font-size: 13px;
+      }
+
+      #cmdInput {
+        font-size: 14px;
+      }
+
+      #keyboard {
+        padding: 6px 5px;
+      }
+
+      .key {
+        flex: 1 0 32px;
+        font-size: 14px;
+        padding: 6px 8px;
+        margin: 3px 4px;
+      }
+
+      .key.wide {
+        flex: 1 0 70px;
+      }
+
+      #keySpace {
+        flex: 1 0 140px !important;
+      }
+
+      #radarContainer {
+        max-width: 220px;
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container">
+    <!-- Left info panel -->
+    <div id="infoPanel">
+      <h2>CYBER TERMINAL</h2>
+      <ul id="infoList">
+        <!-- Info items injected by JS -->
+      </ul>
+    </div>
+
+    <!-- Right terminal panel -->
+    <div id="terminalPanel">
+      <div id="terminalOutput"></div>
+      <input id="cmdInput" type="text" placeholder="Enter command..." autocomplete="off" autofocus />
+      <div id="radarContainer"></div>
+    </div>
+  </div>
+
+  <div id="glitch"></div>
+
+  <!-- Custom Onscreen Keyboard -->
+  <div id="keyboard">
+    <!-- Letters -->
+    <div class="key">q</div>
+    <div class="key">w</div>
+    <div class="key">e</div>
+    <div class="key">r</div>
+    <div class="key">t</div>
+    <div class="key">y</div>
+    <div class="key">u</div>
+    <div class="key">i</div>
+    <div class="key">o</div>
+    <div class="key">p</div>
+    <div class="key">a</div>
+    <div class="key">s</div>
+    <div class="key">d</div>
+    <div class="key">f</div>
+    <div class="key">g</div>
+    <div class="key">h</div>
+    <div class="key">j</div>
+    <div class="key">k</div>
+    <div class="key">l</div>
+    <div class="key wide" id="keyBackspace">Backspace</div>
+    <div class="key">z</div>
+    <div class="key">x</div>
+    <div class="key">c</div>
+    <div class="key">v</div>
+    <div class="key">b</div>
+    <div class="key">n</div>
+    <div class="key">m</div>
+    <div class="key wide" id="keyEnter">Enter</div>
+    <div class="key wide" id="keySpace" style="flex: 1 0 300px;">Space</div>
+  </div>
+
+  <audio id="bgAudio" src="https://assets.codepen.io/3/synthwave-loop.mp3" loop autoplay muted></audio>
+  <audio id="typeSound" src="https://actions.google.com/sounds/v1/keyboard/keyboard_press.wav" preload="auto"></audio>
+
+  <!-- GSAP from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+
+  <script type="module">
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.module.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Elements
+      const terminalOutput = document.getElementById('terminalOutput');
+      const cmdInput = document.getElementById('cmdInput');
+      const infoList = document.getElementById('infoList');
+      const radarContainer = document.getElementById('radarContainer');
+      const bgAudio = document.getElementById('bgAudio');
+      const typeSound = document.getElementById('typeSound');
+
+      // Play audio on user interaction (required by some browsers)
+      document.body.addEventListener('click', () => {
+        bgAudio.muted = false;
+        bgAudio.play();
+      }, { once: true });
+
+      // Fake system info data
+      const fakeUser = "agent007";
+      const fakeIP = "192.168.0.42";
+      let ramUsage = 30;
+      let cpuUsage = 25;
+      let fakeTasks = [
+        "Process scan.exe - RUNNING",
+        "Process hacktool - SUSPENDED",
+        "Process sshd - RUNNING",
+        "Process sysmon - RUNNING",
+        "Process updater - IDLE"
+      ];
+
+      // Clock update
+      function updateClock() {
+        const now = new Date();
+        return now.toLocaleTimeString('en-US', { hour12: false });
+      }
+
+      // Animate usage bars
+      function updateUsageBars() {
+        ramUsage += (Math.random() - 0.5) * 5;
+        cpuUsage += (Math.random() - 0.5) * 7;
+        ramUsage = Math.min(90, Math.max(5, ramUsage));
+        cpuUsage = Math.min(90, Math.max(5, cpuUsage));
+      }
+
+      // Render info panel content
+      function renderInfo(command = '') {
+        infoList.innerHTML = '';
+        // Always show clock
+        const clockLi = document.createElement('li');
+        clockLi.textContent = "Time: " + updateClock();
+        infoList.appendChild(clockLi);
+
+        // Always show user and IP
+        const userLi = document.createElement('li');
+        userLi.textContent = "User: " + fakeUser;
+        infoList.appendChild(userLi);
+
+        const ipLi = document.createElement('li');
+        ipLi.textContent = "IP: " + fakeIP;
+        ipLi.style.animation = "blink 1s step-start infinite";
+        infoList.appendChild(ipLi);
+
+        // Show RAM and CPU usage bars
+        const ramLi = document.createElement('li');
+        ramLi.textContent = "RAM Usage:";
+        const ramBar = document.createElement('div');
+        ramBar.classList.add('bar-container');
+        const ramFill = document.createElement('div');
+        ramFill.classList.add('bar-fill');
+        ramBar.appendChild(ramFill);
+        ramLi.appendChild(ramBar);
+        infoList.appendChild(ramLi);
+
+        const cpuLi = document.createElement('li');
+        cpuLi.textContent = "CPU Usage:";
+        const cpuBar = document.createElement('div');
+        cpuBar.classList.add('bar-container');
+        const cpuFill = document.createElement('div');
+        cpuFill.classList.add('bar-fill');
+        cpuBar.appendChild(cpuFill);
+        cpuLi.appendChild(cpuBar);
+        infoList.appendChild(cpuLi);
+
+        // Show fake tasks if "tasks" command typed
+        if (command === 'tasks') {
+          const taskHeader = document.createElement('li');
+          taskHeader.textContent = "Running Tasks:";
+          taskHeader.style.marginTop = '15px';
+          infoList.appendChild(taskHeader);
+
+          fakeTasks.forEach(task => {
+            const taskLi = document.createElement('li');
+            taskLi.textContent = task;
+            infoList.appendChild(taskLi);
+          });
+        }
+
+        // Animate bars fill
+        gsap.to(ramFill, { width: ramUsage + '%', duration: 0.6, ease: "power2.out" });
+        gsap.to(cpuFill, { width: cpuUsage + '%', duration: 0.6, ease: "power2.out" });
+      }
+
+      // Terminal printing effect with typing sound
+      async function printLine(text = '', delay = 20) {
+        return new Promise((resolve) => {
+          let i = 0;
+          const line = document.createElement('div');
+          terminalOutput.appendChild(line);
+
+          function playTypeSound() {
+            // Play a quick typing sound for each character
+            typeSound.currentTime = 0;
+            typeSound.play().catch(() => { });
+          }
+
+          function type() {
+            if (i < text.length) {
+              line.textContent += text.charAt(i);
+              playTypeSound();
+              i++;
+              terminalOutput.scrollTop = terminalOutput.scrollHeight;
+              setTimeout(type, delay);
+            } else {
+              resolve();
+            }
+          }
+          type();
+        });
+      }
+
+      // Handle command input and responses
+      async function handleCommand(cmd) {
+        cmd = cmd.trim().toLowerCase();
+        if (!cmd) return;
+
+        await printLine('> ' + cmd);
+        switch (cmd) {
+          case 'help':
+            await printLine('Available commands: help, clear, tasks, ping');
+            break;
+          case 'clear':
+            terminalOutput.innerHTML = '';
+            break;
+          case 'tasks':
+            await printLine('Listing running tasks...');
+            break;
+          case 'ping':
+            await printLine('Pong! Latency: 42ms');
+            break;
+          default:
+            await printLine(`Command not found: ${cmd}`);
+            break;
+        }
+
+        // Update info panel with special commands
+        if (cmd === 'tasks') {
+          renderInfo('tasks');
+        } else {
+          renderInfo();
+        }
+      }
+
+      // Setup initial render
+      renderInfo();
+
+      // Update clock and usages every second
+      setInterval(() => {
+        updateUsageBars();
+        renderInfo(cmdInput.value.trim().toLowerCase());
+      }, 1000);
+
+      // Command input event
+      cmdInput.addEventListener('keydown', async (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          const cmd = cmdInput.value;
+          cmdInput.value = '';
+          await handleCommand(cmd);
+        }
+      });
+
+      // Custom keyboard logic
+      const keyboard = document.getElementById('keyboard');
+      keyboard.addEventListener('click', (e) => {
+        if (!e.target.classList.contains('key')) return;
+        const key = e.target.textContent;
+        if (e.target.id === 'keyBackspace') {
+          cmdInput.value = cmdInput.value.slice(0, -1);
+          cmdInput.focus();
+        } else if (e.target.id === 'keyEnter') {
+          cmdInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
+        } else if (e.target.id === 'keySpace') {
+          cmdInput.value += ' ';
+          cmdInput.focus();
+        } else {
+          cmdInput.value += key;
+          cmdInput.focus();
+        }
+      });
+
+      // =======================
+      // THREE.JS RADAR SETUP
+      // =======================
+      const radarWidth = radarContainer.clientWidth;
+      const radarHeight = radarContainer.clientHeight;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(50, radarWidth / radarHeight, 0.1, 1000);
+      camera.position.z = 5;
+
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      renderer.setSize(radarWidth, radarHeight);
+      radarContainer.appendChild(renderer.domElement);
+
+      // Radar circle
+      const radarCircleGeom = new THREE.CircleGeometry(2, 64);
+      const radarCircleMat = new THREE.MeshBasicMaterial({
+        color: 0x00ff00,
+        transparent: true,
+        opacity: 0.15,
+        side: THREE.DoubleSide
+      });
+      const radarCircle = new THREE.Mesh(radarCircleGeom, radarCircleMat);
+      scene.add(radarCircle);
+
+      // Radar sweep sector
+      const sweepMat = new THREE.MeshBasicMaterial({
+        color: 0x00ff00,
+        transparent: true,
+        opacity: 0.3,
+        side: THREE.DoubleSide
+      });
+
+      const sweepShape = new THREE.Shape();
+      sweepShape.moveTo(0, 0);
+      sweepShape.absarc(0, 0, 2, 0, Math.PI / 6, false); // 30 degrees arc
+      sweepShape.lineTo(0, 0);
+
+      const sweepGeom = new THREE.ShapeGeometry(sweepShape);
+      const sweepMesh = new THREE.Mesh(sweepGeom, sweepMat);
+      scene.add(sweepMesh);
+
+      // Radar dots (random blips)
+      const blipGeometry = new THREE.CircleGeometry(0.05, 16);
+      const blipMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+      const blips = [];
+      for (let i = 0; i < 15; i++) {
+        const blip = new THREE.Mesh(blipGeometry, blipMaterial);
+        const angle = Math.random() * 2 * Math.PI;
+        const radius = Math.random() * 1.8;
+        blip.position.set(radius * Math.cos(angle), radius * Math.sin(angle), 0);
+        blip.visible = false; // initially invisible, appear when sweep passes
+        scene.add(blip);
+        blips.push({ mesh: blip, angle });
+      }
+
+      // Animate radar sweep
+      let sweepAngle = 0;
+      function animate() {
+        requestAnimationFrame(animate);
+        sweepAngle += 0.02;
+        if (sweepAngle > 2 * Math.PI) sweepAngle -= 2 * Math.PI;
+
+        // Rotate sweep
+        sweepMesh.rotation.z = sweepAngle;
+
+        // Show blips only when sweep passes their angle (±0.3 rad)
+        blips.forEach(b => {
+          let diff = b.angle - sweepAngle;
+          if (diff < 0) diff += 2 * Math.PI;
+          b.mesh.visible = diff < 0.3;
+        });
+
+        renderer.render(scene, camera);
+      }
+      animate();
+
+    });
+  </script>
+</body>
+
+</html>
