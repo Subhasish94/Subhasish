@@ -342,3 +342,54 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+
+
+// ================== progressbar =============
+
+const containers = document.querySelectorAll('.progress-container');
+
+  containers.forEach(container => {
+    const circle = container.querySelector('.progress-ring__circle');
+    const r = circle.r.baseVal.value;
+    const c = 2 * Math.PI * r;
+    circle.style.strokeDasharray = c;
+    circle.style.strokeDashoffset = c;
+    container._progressData = { circle, c };
+  });
+
+  function animateProgressBars() {
+    containers.forEach(container => {
+      const percent = +container.dataset.percent;
+      const { circle, c } = container._progressData;
+      const text = container.querySelector('.progress-text');
+
+      gsap.set(circle, { strokeDashoffset: c });
+      text.textContent = "0%";
+
+      gsap.to(circle, {
+        strokeDashoffset: c - (percent / 100) * c,
+        duration: 1.5,
+        ease: "power2.out"
+      });
+
+      const counter = { val: 0 };
+      gsap.to(counter, {
+        val: percent,
+        duration: 1.5,
+        ease: "power2.out",
+        onUpdate: () => {
+          text.textContent = `${Math.round(counter.val)}%`;
+        }
+      });
+    });
+  }
+
+  ScrollTrigger.create({
+    trigger: ".progress-grid",
+    start: "top 80%",
+    end: "bottom top",
+    toggleActions: "play none none reset",
+    onEnter: animateProgressBars,
+    onLeaveBack: animateProgressBars
+  });
