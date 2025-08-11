@@ -50,8 +50,8 @@ function animate() {
 initStarfield();
 
 // GSAP Animations
-gsap.from(".glow-text", { opacity: 0, y: -50, duration: 2 });
-gsap.from(".glow-text p", { opacity: 0, y: 50, delay: 1, duration: 2 });
+// gsap.from(".glow-text", { opacity: 0, y: -50, duration: 2 });
+// gsap.from(".glow-text p", { opacity: 0, y: 50, delay: 1, duration: 2 });
 
 
 
@@ -140,3 +140,50 @@ gsap.from(".glow-text p", { opacity: 0, y: 50, delay: 1, duration: 2 });
 //   },
 //   "retina_detect": true
 // });
+
+
+gsap.registerPlugin(SplitText, ScrollTrigger);
+
+function animateSection(sectionClass, splitType, vars) {
+  const sections = document.querySelectorAll(sectionClass);
+  sections.forEach(section => {
+    section.querySelectorAll("h1,h2,h3,h4,h5,h6,p,ul,li").forEach(el => {
+      let split = SplitText.create(el, { type: splitType });
+      gsap.from(split[splitType], {
+        ...vars,
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          toggleActions: "play none none reverse"
+        }
+      });
+    });
+  });
+}
+
+// Animate all sections by their class
+animateSection(".Characters", "chars", {
+  x: 150,
+  opacity: 0, 
+  duration: .5,
+  ease: "power4",
+  stagger: 0.04
+});
+
+animateSection(".Words", "words", {
+  y: -100,
+  opacity: 0,
+  rotation: "random(-80, 20)",
+  duration: 0.5,
+  ease: "back",
+  stagger: 0.04
+});
+
+animateSection(".Lines", "lines", {
+  rotationX: -100,
+  transformOrigin: "50% 50% -160px",
+  opacity: 0,
+  duration: 0.8,
+  ease: "power1",
+  stagger: 0.2
+});

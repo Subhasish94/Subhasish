@@ -51,14 +51,14 @@ body {
 }
 
 /* Typing animation text */
-.typing {
+/* .typing {
   font-size: 3em;
   font-weight: bold;
   color: #00ffff;
   min-height: 1.2em;
   margin-bottom: 20px;
   height: 64px;
-}
+} */
 
 /* Timer & Current Time */
 #timer,

@@ -197,8 +197,12 @@ li:hover .iconShoppingCart {
   text-shadow: 0 0 15px #0ff, 0 0 30px #00ffff;
   margin-bottom: 20px;
 }
-
-
+.logo img{
+  width: 60px;
+  border-radius: 15px;
+  background-color: #00ffff;
+  padding: 5px;
+}
 canvas#starfield {
   position: absolute;
   top: 0;
@@ -232,7 +236,7 @@ canvas#starfield {
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%% 
             aboutus 
  %%%%%%%%%%%%%%%%%%%%%%%%%%% */
-.aboutus {
+/* .aboutus {
   position: relative;
   background-color: black;
 }
@@ -245,6 +249,83 @@ canvas#starfield {
   color: white;
   text-align: center;
 }
+
+ */
+/* Section styling */
+.aboutus {
+  position: relative;
+  background: #000; /* Black background */
+  color: #fff;
+  padding: 80px 20px;
+  overflow: hidden;
+}
+
+/* Particles.js canvas positioning */
+.aboutus #particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* behind content */
+}
+
+/* Content wrapper */
+.aboutus .content {
+  position: relative;
+  z-index: 1; /* above particles */
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Heading with neon effect */
+.aboutus .content h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #fff; /* Neon cyan */
+  text-shadow: 0 0 10px #00ffff,
+               0 0 20px #00ffff,
+               0 0 40px #00ffff;
+}
+
+/* Paragraph styling */
+.aboutus .content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #ccc; /* softer for readability */
+  text-align: start;
+}
+
+/* Neon accent for key terms inside p */
+.aboutus .content p strong,
+.aboutus .content p span {
+  color: #00ffff;
+  font-weight: bold;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+/* Optional: subtle border glow */
+.aboutus .content {
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  border-radius: 15px;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.5); /* translucent to show particles */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .aboutus .content h1 {
+    font-size: 2.2rem;
+  } 
+  .aboutus .content p {
+    font-size: 1rem;
+  }
+}
+
 
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%% 
             skills 
@@ -529,18 +610,10 @@ canvas#starfield {
 .ok {
   position: relative;
   width: 100%;
-  overflow: auto;
+  /* overflow: auto; */
   color: white;
 }
 
-.ok canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 10;
-  filter: drop-shadow(0 0 5px white);
-}
 
 
 
