@@ -336,7 +336,7 @@
     <script src="js/gsap.min.js"></script>
     <script src="js/particles.min.js"></script>
     <script type="module" src="js/main.js"></script>
-    <script>
+    <!-- <script>
         const container = document.getElementById("ok-container");
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
@@ -433,37 +433,22 @@
         window.addEventListener("resize", resizeCanvasToContainer);
 
         animate();
+    </script> -->
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
-
-        particlesJS.load('particles-js', 'particles.json', function () {
-            console.log('Particles.js config loaded');
-        }); 
+    <!-- Your Initialization Script -->
+    <script>
         particlesJS("particles-js", {
             "particles": {
                 "number": {
                     "value": 120,
-                    "density": {
-                        "enable": true,
-                        "value_area": 600
-                    }
+                    "density": { "enable": true, "value_area": 600 }
                 },
-                "color": {
-                    "value": "#00ffff"
-                },
-                "shape": {
-                    "type": "polygon",
-                    "polygon": {
-                        "nb_sides": 5
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": true
-                },
-                "size": {
-                    "value": 3,
-                    "random": true
-                },
+                "color": { "value": "#00ffff" },
+                "shape": { "type": "polygon", "polygon": { "nb_sides": 5 } },
+                "opacity": { "value": 0.5, "random": true },
+                "size": { "value": 3, "random": true },
                 "line_linked": {
                     "enable": true,
                     "distance": 100,
@@ -484,45 +469,22 @@
             "interactivity": {
                 "detect_on": "canvas",
                 "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "grab"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
                     "resize": true
                 },
                 "modes": {
-                    "grab": {
-                        "distance": 150,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 200,
-                        "size": 50,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
+                    "grab": { "distance": 150, "line_linked": { "opacity": 1 } },
+                    "bubble": { "distance": 200, "size": 50, "duration": 2, "opacity": 8, "speed": 3 },
+                    "repulse": { "distance": 200, "duration": 0.4 },
+                    "push": { "particles_nb": 4 },
+                    "remove": { "particles_nb": 2 }
                 }
             },
             "retina_detect": true
         });
     </script>
+
 
 </body>
 
