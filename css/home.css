@@ -1,6 +1,7 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   scroll-behavior: smooth;
+  color: #fff;
 }
 
 em {
@@ -570,10 +571,10 @@ canvas#starfield {
 }
 
 .row {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 
 .oval-1 {

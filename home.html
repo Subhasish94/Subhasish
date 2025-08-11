@@ -178,7 +178,7 @@
             <div class="Characters">
                 <h2>Skills & Expertise</h2>
             </div>
-            <div class="stack-card">
+            <div class="stack-card" id="container">
                 <div class="each-node">
                     <div class="mongo">
                         <div class="leaf"></div>
@@ -271,6 +271,99 @@
                     captivating, highly functional, and built for the future. Driven by curiosity and precision, I
                     believe great design only reaches its full potential when paired with exceptional code.
                 </p>
+            </div>
+            <div class="bg-info">
+                <h5>Technical Skills</h5>
+                <div class="">
+                    <h6>Frontend Development</h6>
+                    <ul>
+                        <li>Mastery in HTML5, CSS3, JavaScript (ES6+) for building responsive, accessible, and
+                            mobile-first websites.</li>
+                        <li>Proficient in React.js for creating dynamic, component-based user interfaces.</li>
+                    </ul>
+                </div>
+                <div class="">
+                    <h6>Frameworks & Libraries </h6>
+                    <ul>
+                        <li>
+                            Bootstrap, Tailwind CSS – Rapid, responsive UI development.
+                        </li>
+                        <li> GSAP, Three.js – High-performance animations, 3D effects, and immersive interactions.
+                        </li>
+                        <li>jQuery – Simplifying complex DOM manipulations and animations where needed.</li>
+                    </ul>
+                </div>
+                <div class="">
+                    <h6>UI/UX Implementation</h6>
+                    <ul>
+                        <li>Translating Figma, Adobe XD, and PSD designs into pixel-perfect, production-ready code.</li>
+                        <li>Optimizing for usability, clarity, and accessibility (WCAG standards).</li>
+                    </ul>
+                </div>
+                <div class="">
+                    <h6>Animation & Visual Effects</h6>
+                    <ul>
+                        <li>Creating engaging animations and transitions using CSS animations and JavaScript.</li>
+                        <li>Implementing parallax scrolling effects and 3D transformations for enhanced user experience.
+                        </li>
+                        <li>Crafting smooth transitions, parallax effects, hover animations, and micro-interactions to
+                            enhance user engagement.</li>
+                        <li>Developing 3D scenes and motion graphics for creative storytelling.</li>
+                    </ul>
+                </div>
+                <div class="">
+                    <h6>Performance Optimization</h6>
+                    <ul>
+                        <li>Writing clean, maintainable, and modular code.</li>
+                        <li>Improving site speed, SEO, and accessibility through optimization strategies.</li>
+                    </ul>
+                </div>
+                <div class="">
+                    <h6>Version Control & Collaboration</h6>
+                    <ul>
+                        <li>Git & GitHub for team collaboration and project management. </li>
+                        <li> Familiarity with agile workflows and CI/CD integration.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="bg-warning">
+                        <h5>Professional Strengths</h5>
+                        <ul>
+                            <li>
+                                Creative Problem-Solving – Finding innovative solutions to design and development
+                                challenges.
+                            </li>
+                            <li> Eye for Detail – Every element, from color palettes to animation timing, is crafted
+                                with
+                                precision.</li>
+                            <li>
+                                Adaptability – Thrives in fast-paced environments and adapts quickly to new
+                                technologies.
+                            </li>
+                            <li>
+                                Continuous Learning – Always exploring modern trends, frameworks, and techniques to stay
+                                ahead.
+                            </li>
+                            <li> Client-Centered Approach – Understanding the vision and transforming it into a
+                                functional,
+                                engaging product.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-light">
+                        <h5>🚀 My Development Philosophy</h5>
+                        <p>
+                            I believe a website should tell a story, feel alive, and inspire action. My mission is to
+                            create experiences where design meets technology seamlessly — delivering projects that are
+                            not only aesthetically stunning but also technically robust. From crafting smooth animations
+                            to ensuring pixel-perfect layouts, I aim to make every project an unforgettable digital
+                            journey.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -454,34 +547,6 @@
         </div>
     </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/gsap.min.js"></script>
@@ -496,10 +561,6 @@
 
     <!-- Your Initialization Script -->
     <script>
-
-
-
-
         particlesJS("particles-js", {
             "particles": {
                 "number": {
@@ -544,48 +605,8 @@
             },
             "retina_detect": true
         });
+
     </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            function incrementCounter(element) {
-                const targetCount = parseInt(element.textContent, 10);
-                let countNum = 0;
-                const duration = 2000; // 2 seconds
-                const startTime = performance.now();
-
-                function updateCounter(currentTime) {
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    countNum = Math.floor(progress * targetCount);
-                    element.textContent = countNum;
-
-                    if (progress < 1) {
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        element.textContent = targetCount;
-                    }
-                }
-
-                requestAnimationFrame(updateCounter);
-            }
-
-            window.addEventListener("scroll", function () {
-                document.querySelectorAll(".stats-item").forEach(function (counterSection) {
-                    const rect = counterSection.getBoundingClientRect();
-                    const windowHeight = window.innerHeight;
-                    if (!counterSection.classList.contains("counted") && rect.top < windowHeight - 50) {
-                        counterSection.classList.add("counted");
-                        const countElement = counterSection.querySelector(".count");
-                        if (countElement) {
-                            incrementCounter(countElement);
-                        }
-                    }
-                });
-            });
-        });
-    </script>
-
 
 
 </body>

@@ -301,3 +301,44 @@ if (animatedText) {
     stagger: 0.05
   });
 }
+
+
+// ================= counter ==============
+document.addEventListener("DOMContentLoaded", function () {
+  function incrementCounter(element) {
+    const targetCount = parseInt(element.textContent, 10);
+    let countNum = 0;
+    const duration = 2000; // 2 seconds
+    const startTime = performance.now();
+
+    function updateCounter(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      countNum = Math.floor(progress * targetCount);
+      element.textContent = countNum;
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      } else {
+        element.textContent = targetCount;
+      }
+    }
+
+    requestAnimationFrame(updateCounter);
+  }
+
+  window.addEventListener("scroll", function () {
+    document.querySelectorAll(".stats-item").forEach(function (counterSection) {
+      const rect = counterSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      if (!counterSection.classList.contains("counted") && rect.top < windowHeight - 50) {
+        counterSection.classList.add("counted");
+        const countElement = counterSection.querySelector(".count");
+        if (countElement) {
+          incrementCounter(countElement);
+        }
+      }
+    });
+  });
+});
+
