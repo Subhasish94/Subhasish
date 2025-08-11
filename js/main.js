@@ -164,7 +164,7 @@ function animateSection(sectionClass, splitType, vars) {
 // Animate all sections by their class
 animateSection(".Characters", "chars", {
   x: 150,
-  opacity: 0, 
+  opacity: 0,
   duration: .5,
   ease: "power4",
   stagger: 0.04
@@ -186,4 +186,16 @@ animateSection(".Lines", "lines", {
   duration: 0.8,
   ease: "power1",
   stagger: 0.2
+});
+
+gsap.from(animatedText, {
+  scrollTrigger: {
+    trigger: animatedText,
+    start: "top 90%",
+    end: "top 40%",
+    scrub: true,
+  },
+  scale: 0.5,
+  opacity: 0,
+  duration: 2,
 });
