@@ -51,7 +51,7 @@ initStarfield();
 
 // GSAP Animations
 gsap.from(".glow-text", { opacity: 0, y: -50, duration: 2 });
-gsap.from(".tagline", { opacity: 0, y: 50, delay: 1, duration: 2 });
+gsap.from(".glow-text p", { opacity: 0, y: 50, delay: 1, duration: 2 });
 
 
 

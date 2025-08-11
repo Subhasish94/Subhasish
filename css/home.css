@@ -185,10 +185,17 @@ li:hover .iconShoppingCart {
   z-index: 2;
   color: white;
 }
-
-.glow-text {
+.glow-text{
+  max-width: 600px;
+  margin: auto;
+}
+.glow-text h1 span{
+  font-size: 3.5rem;
+}
+.glow-text h1{
   font-size: 3rem;
   text-shadow: 0 0 15px #0ff, 0 0 30px #00ffff;
+  margin-bottom: 20px;
 }
 
 canvas#starfield {
