@@ -5,9 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My 3D Universe Portfolio</title>
-     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script> -->
-     <script src="js/tsparticles.bundle.min.js"></script>
+    <script src="js/tsparticles.bundle.min.js"></script>
 
 
     <link rel="stylesheet" href="css/home.css" />
@@ -300,7 +300,7 @@
     </section>
 
 
-   
+
 
 
 
@@ -433,6 +433,95 @@
         window.addEventListener("resize", resizeCanvasToContainer);
 
         animate();
+
+
+        particlesJS.load('particles-js', 'particles.json', function () {
+            console.log('Particles.js config loaded');
+        }); 
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 120,
+                    "density": {
+                        "enable": true,
+                        "value_area": 600
+                    }
+                },
+                "color": {
+                    "value": "#00ffff"
+                },
+                "shape": {
+                    "type": "polygon",
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true
+                },
+                "size": {
+                    "value": 3,
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 100,
+                    "color": "#00ffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 150,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 200,
+                        "size": 50,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
     </script>
 
 </body>
