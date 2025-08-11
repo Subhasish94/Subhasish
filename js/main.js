@@ -142,14 +142,107 @@ initStarfield();
 // });
 
 
-gsap.registerPlugin(SplitText, ScrollTrigger);
+// gsap.registerPlugin(SplitText, ScrollTrigger);
 
+// function animateSection(sectionClass, splitType, vars) {
+//   const sections = document.querySelectorAll(sectionClass);
+//   sections.forEach(section => {
+//     section.querySelectorAll("h1,h2,h3,h4,h5,h6,p,ul,li").forEach(el => {
+//       let split = SplitText.create(el, { type: splitType });
+//       gsap.from(split[splitType], {
+//         ...vars,
+//         scrollTrigger: {
+//           trigger: section,
+//           start: "top 80%",
+//           toggleActions: "play none none reverse"
+//         }
+//       });
+//     });
+//   });
+// }
+
+// // Animate all sections by their class
+// animateSection(".Characters", "chars", {
+//   x: 150,
+//   opacity: 0,
+//   duration: .5,
+//   ease: "power4",
+//   stagger: 0.04
+// });
+
+// animateSection(".Words", "words", {
+//   y: -100,
+//   opacity: 0,
+//   rotation: "random(-80, 20)",
+//   duration: 0.5,
+//   ease: "back",
+//   stagger: 0.04
+// });
+
+// animateSection(".Lines", "lines", {
+//   rotationX: -100,
+//   transformOrigin: "50% 50% -160px",
+//   opacity: 0,
+//   duration: 0.8,
+//   ease: "power1",
+//   stagger: 0.2
+// });
+
+// gsap.from(animatedText, {
+//   scrollTrigger: {
+//     trigger: animatedText,
+//     start: "top 90%",
+//     end: "top 40%",
+//     scrub: true,
+//   },
+//   scale: 0.5,
+//   opacity: 0,
+//   duration: 2,
+// });
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Custom text splitter
+function splitText(el, type = "chars") {
+  let text = el.textContent;
+  el.textContent = ""; // clear original
+
+  if (type === "chars") {
+    text.split("").forEach(char => {
+      let em = document.createElement("em");
+      em.textContent = char;
+      el.appendChild(em);
+    });
+  }
+
+  if (type === "words") {
+    text.split(" ").forEach(word => {
+      let em = document.createElement("em");
+      em.textContent = word + " ";
+      el.appendChild(em);
+    });
+  }
+
+  if (type === "lines") {
+    text.split("\n").forEach(line => {
+      let em = document.createElement("em");
+      em.textContent = line;
+      el.appendChild(em);
+    });
+  }
+
+  return el.querySelectorAll("em");
+}
+
+// Animate sections
 function animateSection(sectionClass, splitType, vars) {
   const sections = document.querySelectorAll(sectionClass);
+
   sections.forEach(section => {
     section.querySelectorAll("h1,h2,h3,h4,h5,h6,p,ul,li").forEach(el => {
-      let split = SplitText.create(el, { type: splitType });
-      gsap.from(split[splitType], {
+      let parts = splitText(el, splitType);
+
+      gsap.from(parts, {
         ...vars,
         scrollTrigger: {
           trigger: section,
@@ -161,24 +254,26 @@ function animateSection(sectionClass, splitType, vars) {
   });
 }
 
-// Animate all sections by their class
+// Animate characters
 animateSection(".Characters", "chars", {
   x: 150,
   opacity: 0,
-  duration: .5,
+  duration: 0.5,
   ease: "power4",
   stagger: 0.04
 });
 
+// Animate words
 animateSection(".Words", "words", {
   y: -100,
   opacity: 0,
-  rotation: "random(-80, 20)",
+  rotation: gsap.utils.random(-80, 20),
   duration: 0.5,
   ease: "back",
   stagger: 0.04
 });
 
+// Animate lines
 animateSection(".Lines", "lines", {
   rotationX: -100,
   transformOrigin: "50% 50% -160px",
@@ -188,14 +283,21 @@ animateSection(".Lines", "lines", {
   stagger: 0.2
 });
 
-gsap.from(animatedText, {
-  scrollTrigger: {
-    trigger: animatedText,
-    start: "top 90%",
-    end: "top 40%",
-    scrub: true,
-  },
-  scale: 0.5,
-  opacity: 0,
-  duration: 2,
-});
+// Special case for animated text
+let animatedText = document.querySelector(".animated-text");
+if (animatedText) {
+  let chars = splitText(animatedText, "chars");
+
+  gsap.from(chars, {
+    scrollTrigger: {
+      trigger: animatedText,
+      start: "top 90%",
+      end: "top 40%",
+      scrub: true,
+    },
+    scale: 0.5,
+    opacity: 0,
+    duration: 2,
+    stagger: 0.05
+  });
+}

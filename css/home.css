@@ -2,7 +2,9 @@ body {
   font-family: 'Segoe UI', sans-serif;
   scroll-behavior: smooth;
 }
-
+em{
+  font-style: normal;
+}
 /* .section {
   padding: 80px 20px;
 } */
@@ -654,6 +656,63 @@ canvas#starfield {
     transform: rotateY(360deg);
   }
 }
+
+.html5-logo {
+       width: 82px;
+    height: 67px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shield {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #e44d26 0%, #f16529 100%);
+    clip-path: polygon(10% 0%, 90% 0%, 80% 88%, 50% 100%, 20% 88%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+    position: relative;
+  }
+
+  .html-text {
+    font-size: 10px;
+    letter-spacing: 1px;
+    z-index: 1;
+  }
+
+  .number-5 {
+    font-size: 26px;
+    line-height: 1;
+    z-index: 1;
+  }
+
+  /* Shine effect */
+  .shield::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent 0%, #00ffff67 50%, transparent 100%);
+    transform: skewX(-25deg);
+    animation: shine 2s infinite;
+  }
+
+  @keyframes shine {
+    0% { left: -150%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+  }
 
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%% 
             experience 
