@@ -325,6 +325,62 @@ canvas#starfield {
     font-size: 1rem;
   }
 }
+/* Stats container styling */
+.container {
+  padding: 50px 0;
+}
+
+.stats-item {
+  background: #1e1e1e;
+  border-radius: 10px;
+  text-align: center;
+  padding: 30px 20px;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stats-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.stats-item .count {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #00d1b2; /* Accent color */
+  margin-bottom: 10px;
+}
+
+.stats-item p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #bbb;
+}
+
+.stats-item p strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.stats-item span {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .stats-item {
+    padding: 20px 15px;
+  }
+
+  .stats-item .count {
+    font-size: 2rem;
+  }
+}
 
 
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%% 
