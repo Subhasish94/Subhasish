@@ -351,9 +351,13 @@ canvas#starfield {
 
 /* Stats container styling */
 .each-node {
-  width: calc(100% / 6);
+  /* width: calc(100% / 6);
   display: flex;
-  justify-content: center;
+  justify-content: center; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
 }
 
 .stats-item {
