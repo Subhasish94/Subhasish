@@ -293,6 +293,7 @@ canvas#starfield {
   margin: auto;
   text-align: center;
   padding: 20px;
+  margin-bottom: 20px;
 }
 
 /* Heading with neon effect */
@@ -357,7 +358,7 @@ canvas#starfield {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50% , -50%);
+  transform: translate(-50%, -50%);
 }
 
 .stats-item {
@@ -401,30 +402,30 @@ canvas#starfield {
   font-size: 0.85rem;
   color: #888;
 }
-.progress-section{
+
+.progress-section {
   position: relative;
   border-radius: 14px;
-  padding: 22px;
-  background: rgba(0, 0, 0, 0.6);
-  box-shadow: 0 0 8px rgba(0, 255, 255, 0.2);
-  border: 1px solid rgba(0, 255, 255, 0.13);
-  backdrop-filter: blur(1.1px);
+  padding: 22px 20px 76px;
 }
 
 .progress-grid {
   display: flex;
   /* gap: 40px; */
+  row-gap: 50px;
   flex-wrap: wrap;
 }
+
 .each-progrss-bar {
   flex-shrink: 0;
-  width: calc(100% / 6);
+  width: calc(100% / 5);
 }
+
 .progress-container {
   position: relative;
   width: 150px;
   height: 150px;
-  margin: 0px auto 20px;
+  margin: 0px auto 5px;
 }
 
 .progress-ring__background {
@@ -444,12 +445,14 @@ canvas#starfield {
   stroke-dashoffset: 339.292;
   transition: stroke-dashoffset 1s ease-out;
 }
-.sss{
+
+.sss {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .progress-text {
   /* position: absolute;
   top: 50%;
@@ -458,14 +461,15 @@ canvas#starfield {
   font-size: 24px;
   font-weight: bold;
   color: #fff;
+  text-align: center;
 }
 
 .label {
-  position: absolute;
+  /* position: absolute;
   top: 100%;
   left: 50%;
   width: 100%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); */
   font-size: 14px;
   font-weight: 500;
   color: #fff;
@@ -493,15 +497,18 @@ canvas#starfield {
  %%%%%%%%%%%%%%%%%%%%%%%%%%% */
 .skills {
   background-color: black;
-  padding: 40px 0px;
-  position: relative;
-}
-
-.skills {
   position: relative;
   overflow: hidden;
 }
 
+.progress-wrap{  
+  padding: 40px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.2);
+  border: 1px solid rgba(0, 255, 255, 0.13);
+  backdrop-filter: blur(1.1px);
+  border-radius: 0 0 20px 20px;
+}
 
 
 /* Animated radial dot grid overlay */
@@ -554,7 +561,9 @@ canvas#starfield {
 }
 
 .MoreAboutSkill {
-  margin-top: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: center;
 }
 
 .stack-card {
@@ -775,8 +784,8 @@ canvas#starfield {
 }
 
 .html5-logo {
-  width: 82px;
-  height: 67px;
+  width: 71px;
+  height: 65px;
   display: grid;
   place-items: center;
   position: relative;
@@ -807,7 +816,7 @@ canvas#starfield {
 }
 
 .number-5 {
-  font-size: 26px;
+  font-size: 18px;
   line-height: 1;
   z-index: 1;
 }
@@ -859,8 +868,8 @@ canvas#starfield {
 
 /* Place this CSS with your existing HTML5 logo CSS or in the page <head> */
 .css3-logo {
-  width: 82px;
-  height: 67px;
+  width: 71px;
+  height: 65px;
   display: grid;
   place-items: center;
   position: relative;
@@ -894,7 +903,7 @@ canvas#starfield {
 }
 
 .css3-logo .number-3 {
-  font-size: 30px;
+  font-size: 18px;
   line-height: 1;
   z-index: 1;
 }
@@ -950,8 +959,8 @@ canvas#starfield {
 }
 
 .js-logo-real {
-  width: 66px;
-  height: 66px;
+  width: 60px;
+  height: 60px;
   background: #F7DF1E;
   position: relative;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -991,8 +1000,8 @@ canvas#starfield {
 }
 
 .bootstrap-logo {
-  width: 66px;
-  height: 66px;
+  width: 60px;
+  height: 60px;
   background: #7952B3;
   border-radius: 12px;
   display: flex;
@@ -1006,8 +1015,7 @@ canvas#starfield {
 .bs-text {
   color: white;
   font-weight: 400;
-  /* normal weight */
-  font-size: 35px;
+  font-size: 28px;
   line-height: 1;
   user-select: none;
   animation: bounceTXT 2s ease-in-out infinite;
@@ -1017,7 +1025,7 @@ canvas#starfield {
 
   0%,
   100% {
-    transform: translateY(0);
+    transform: translateY(5px);
   }
 
   50% {
@@ -1026,8 +1034,8 @@ canvas#starfield {
 }
 
 .text {
-  width: 158px;
-  font-size: 50px;
+  width: 115px;
+  font-size: 28px;
   font-weight: bold;
   background: linear-gradient(270deg, #FF6B6B, #FFD93D, #6BCB77, #4D96FF, #FF6B6B);
   background-size: 1000% 1000%;
@@ -1039,6 +1047,7 @@ canvas#starfield {
   user-select: none;
   perspective: 600px;
   transition: all 0.3s ease;
+  justify-content: center;
   /* for 3D rotation */
 }
 
