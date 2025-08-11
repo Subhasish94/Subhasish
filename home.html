@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My 3D Universe Portfolio</title>
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script> -->
+     <script src="js/tsparticles.bundle.min.js"></script>
+
+
+    <link rel="stylesheet" href="css/home.css" />
+</head>
+
+<body class="light-theme">
+    <div class="social-icon">
+        <ul>
+            <li>
+                <div class="divInner"></div>
+                <div class="divShadow"></div>
+                <div class="spanTxt iconHome"></div>
+            </li>
+            <li>
+                <div class="divInner"></div>
+                <div class="divShadow"></div>
+                <div class="spanTxt iconUser"></div>
+            </li>
+            <li>
+                <div class="divInner"></div>
+                <div class="divShadow"></div>
+                <div class="spanTxt iconSearch"></div>
+            </li>
+            <li>
+                <div class="divInner"></div>
+                <div class="divShadow"></div>
+                <div class="spanTxt iconMessage"></div>
+            </li>
+            <li>
+                <div class="divInner"></div>
+                <div class="divShadow"></div>
+                <div class="spanTxt iconShoppingCart"></div>
+            </li>
+        </ul>
+    </div>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark px-3">
+        <a class="navbar-brand" href="#">My Portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#universe-banner">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#hobbies">Hobbies</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><button id="themeToggle" class="btn btn-sm btn-light ms-2">Toggle Theme</button>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section id="universe-banner">
+        <div class="banner-content text-center">
+            <h1 class="glow-text">Welcome to My Universe</h1>
+            <p class="tagline">Frontend Developer | Creative Technologist | 3D Explorer</p>
+        </div>
+    </section>
+    <!-- aboutus -->
+    <section class="aboutus">
+        <div id="particles-js"></div>
+        <div class="content">
+            <h1>About Me</h1>
+            <p>I’m a passionate frontend developer using modern tools like Three.js, GSAP, and more.</p>
+        </div>
+    </section>
+    <!-- Projects -->
+    <section class="skills bg-animation">
+        <div class="container">
+            <h2>My Skills</h2>
+            <!-- <ul class="skills-list">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Three.js</li>
+                <li>GSAP</li>
+            </ul> -->
+            <div class="stack-card">
+                <div class="mongo">
+                    <div class="leaf"></div>
+                </div>
+                <div class="express">
+                    <div class="square">
+                        <p>E</p>
+                    </div>
+                </div>
+                <div class="react-container">
+                    <div class="oval-1">
+                        <div class="react-dot"></div>
+                    </div>
+                    <div class="oval-2"></div>
+                    <div class="oval-3"></div>
+                </div>
+
+                <div class="node-container">
+                    <div class="polygon-container">
+                        <div class="polygon"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience bg-animation">
+
+        <div class="ok" id="ok-container">
+            <canvas id="canvas"></canvas>
+            <div class="container">
+                <h1>
+                    Experience / Education
+                </h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio quam fuga ducimus iusto, at eum modi
+                    magni
+                    natus amet magnam ipsam iure est tenetur, illo labore consequatur pariatur dignissimos repudiandae
+                    quos
+                    dolorum aspernatur sunt dolore eaque minima! Asperiores veritatis rem nostrum quis quo, rerum autem
+                    ab
+                    commodi dolores tempore non itaque libero? Quos alias esse accusamus vitae neque facilis minima
+                    delectus
+                    unde, magni rerum molestiae labore recusandae. Debitis, eaque. Laboriosam quam cupiditate vel ipsum
+                    hic
+                    voluptates est! Impedit excepturi quisquam hic, quaerat eaque sint iure. Itaque, amet saepe! Nostrum
+                    sint
+                    fuga vitae, quisquam quos nulla quasi distinctio ad culpa, id rerum fugit excepturi doloremque dicta
+                    officia
+                    adipisci rem incidunt tempore, ducimus obcaecati earum placeat libero! Ex nemo numquam corrupti, qui
+                    tempora
+                    explicabo facere iste ipsam maxime cupiditate fuga dolorum repellat consequuntur voluptas sequi
+                    molestias!
+                    Rem exercitationem quam repellat nostrum vitae est eius dolor vero inventore! Saepe possimus
+                    aspernatur
+                    est
+                    iure temporibus, enim, blanditiis aperiam praesentium, placeat dolor ipsam beatae in atque nobis
+                    dolore
+                    fugit laboriosam provident nam! Quas, maxime officia, harum distinctio doloribus voluptatum possimus
+                    porro
+                    cumque nisi quibusdam nostrum itaque quia accusantium hic! Placeat, porro doloribus repellendus,
+                    voluptate
+                    soluta atque eligendi exercitationem minima reiciendis harum laborum voluptates! Maxime aut vero,
+                    pariatur
+                    eveniet est architecto. Rem, non. Suscipit, inventore voluptas rem deleniti, voluptatibus quos ea a
+                    consequatur odio error enim magnam dolorem impedit eum sit cumque. Vel, unde pariatur. Excepturi
+                    vitae
+                    nihil
+                    iusto porro obcaecati rerum corrupti animi, perferendis adipisci accusamus eius sunt sapiente quos
+                    doloremque pariatur, quia optio! Ad, quia magni. Sequi officia quasi aut, itaque mollitia veritatis
+                    ut
+                    totam
+
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="projectssec bg-animation">
+        <span>**Project Name:** Portfolio CMS
+            **Description:** A full-stack blog CMS built with React, Express, and MongoDB. Admin panel for dynamic page
+            and blog management.
+            **Tech Used:** React, Express, MongoDB, TinyMCE, Bootstrap
+            [Live Demo] [GitHub]
+
+            **Project Name:** Animated Solar System
+            **Description:** A CSS + HTML simulation of the solar system with rotating planets and orbit animations.
+            **Tech Used:** HTML, CSS, keyframes
+            [View Project]
+        </span>
+        <div class="container">
+            <div class="projects">
+                <div class="card">
+                    <div class="box">
+                        <div class="imgBx">
+                            <img src="https://i.postimg.cc/9QNv3QHB/Photo1.jpg">
+                        </div>
+                        <div class="contentBx">
+                            <div>
+                                <h2>Post Title</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
+                                    adipisci
+                                    dolor
+                                    laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet. Tempora
+                                    eaque
+                                    tenetur voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <div class="imgBx">
+                            <img src="https://i.postimg.cc/MTZRyqXh/Photo2.jpg">
+                        </div>
+                        <div class="contentBx">
+                            <div>
+                                <h2>Post Title</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
+                                    adipisci
+                                    dolor
+                                    laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet. Tempora
+                                    eaque
+                                    tenetur
+                                    voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <div class="imgBx">
+                            <img src="https://i.postimg.cc/nrgDbmTJ/Photo3.jpg">
+                        </div>
+                        <div class="contentBx">
+                            <div>
+                                <h2>Post Title</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
+                                    adipisci
+                                    dolor
+                                    laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet. Tempora
+                                    eaque
+                                    tenetur
+                                    voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <div class="imgBx">
+                            <img src="https://i.postimg.cc/YqTV2qS2/Photo4.jpg">
+                        </div>
+                        <div class="contentBx">
+                            <div>
+                                <h2>Post Title</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
+                                    adipisci
+                                    dolor
+                                    laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet. Tempora
+                                    eaque
+                                    tenetur
+                                    voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <div class="imgBx">
+                            <img src="https://i.postimg.cc/pTVccmsC/Photo5.jpg">
+                        </div>
+                        <div class="contentBx">
+                            <div>
+                                <h2>Post Title</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
+                                    adipisci
+                                    dolor
+                                    laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet. Tempora
+                                    eaque
+                                    tenetur
+                                    voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <div class="imgBx">
+                            <img src="https://i.postimg.cc/BbkhvM47/Photo6.jpg">
+                        </div>
+                        <div class="contentBx">
+                            <div>
+                                <h2>Post Title</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
+                                    adipisci
+                                    dolor
+                                    laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet. Tempora
+                                    eaque
+                                    tenetur
+                                    voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Scripts -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <script src="js/particles.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script>
+        const container = document.getElementById("ok-container");
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        function resizeCanvasToContainer() {
+            canvas.width = container.clientWidth;
+            canvas.height = container.clientHeight;
+        }
+
+        resizeCanvasToContainer();
+
+        let particles = [];
+
+        function hexToRgb(hex) {
+            const bigint = parseInt(hex.slice(1), 16);
+            const r = (bigint >> 16) & 255;
+            const g = (bigint >> 8) & 255;
+            const b = bigint & 255;
+            return { r, g, b };
+        }
+
+        function getRandomColor() {
+            const colors = ["#FFFFFF", "#FFEE99", "#BBDDFF", "#CCE5FF"];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        class Particle {
+            constructor(x, y, size, speedX, speedY, colorHex) {
+                this.x = x;
+                this.y = y;
+                this.size = size;
+                this.speedX = speedX;
+                this.speedY = speedY;
+                this.color = hexToRgb(colorHex);
+                this.alpha = 1;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.alpha -= 0.015;
+            }
+
+            draw() {
+                drawStar(ctx, this.x, this.y, 5, this.size, this.size / 2, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.alpha})`);
+            }
+        }
+
+        // Function to draw a star shape
+        function drawStar(ctx, x, y, points, outerRadius, innerRadius, color) {
+            let angle = Math.PI / points;
+            ctx.beginPath();
+            ctx.moveTo(x, y - outerRadius);
+            for (let i = 0; i < points * 2; i++) {
+                const radius = i % 2 === 0 ? outerRadius : innerRadius;
+                const a = i * angle;
+                ctx.lineTo(x + Math.sin(a) * radius, y - Math.cos(a) * radius);
+            }
+            ctx.closePath();
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+
+        function createParticles(x, y) {
+            for (let i = 0; i < 8; i++) {
+                const size = Math.random() * 4 + 2;
+                const speedX = (Math.random() - 0.5) * 2;
+                const speedY = (Math.random() - 0.5) * 2;
+                const color = getRandomColor();
+                particles.push(new Particle(x, y, size, speedX, speedY, color));
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const particle = particles[i];
+                particle.update();
+                particle.draw();
+                if (particle.alpha <= 0) {
+                    particles.splice(i, 1);
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        container.addEventListener("mousemove", (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            createParticles(x, y);
+        });
+
+        window.addEventListener("resize", resizeCanvasToContainer);
+
+        animate();
+    </script>
+
+</body>
+
+</html>
