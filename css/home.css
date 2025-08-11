@@ -2,9 +2,11 @@ body {
   font-family: 'Segoe UI', sans-serif;
   scroll-behavior: smooth;
 }
-em{
+
+em {
   font-style: normal;
 }
+
 /* .section {
   padding: 80px 20px;
 } */
@@ -187,24 +189,29 @@ li:hover .iconShoppingCart {
   z-index: 2;
   color: white;
 }
-.glow-text{
+
+.glow-text {
   max-width: 600px;
   margin: auto;
 }
-.glow-text h1 span{
+
+.glow-text h1 span {
   font-size: 3.5rem;
 }
-.glow-text h1{
+
+.glow-text h1 {
   font-size: 3rem;
   text-shadow: 0 0 15px #0ff, 0 0 30px #00ffff;
   margin-bottom: 20px;
 }
-.logo img{
+
+.logo img {
   width: 60px;
   border-radius: 15px;
   background-color: #00ffff;
   padding: 5px;
 }
+
 canvas#starfield {
   position: absolute;
   top: 0;
@@ -256,7 +263,8 @@ canvas#starfield {
 /* Section styling */
 .aboutus {
   position: relative;
-  background: #000; /* Black background */
+  background: #000;
+  /* Black background */
   color: #fff;
   padding: 80px 20px;
   overflow: hidden;
@@ -269,13 +277,15 @@ canvas#starfield {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0; /* behind content */
+  z-index: 0;
+  /* behind content */
 }
-
+.particles-js-canvas-el{}
 /* Content wrapper */
 .aboutus .content {
   position: relative;
-  z-index: 1; /* above particles */
+  z-index: 1;
+  /* above particles */
   max-width: 900px;
   margin: auto;
   text-align: center;
@@ -286,10 +296,11 @@ canvas#starfield {
 .aboutus .content h2 {
   font-size: 3rem;
   margin-bottom: 20px;
-  color: #fff; /* Neon cyan */
+  color: #fff;
+  /* Neon cyan */
   text-shadow: 0 0 10px #00ffff,
-               0 0 20px #00ffff,
-               0 0 40px #00ffff;
+    0 0 20px #00ffff,
+    0 0 40px #00ffff;
 }
 
 /* Paragraph styling */
@@ -297,7 +308,8 @@ canvas#starfield {
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 20px;
-  color: #ccc; /* softer for readability */
+  color: #ccc;
+  /* softer for readability */
   text-align: start;
 }
 
@@ -311,27 +323,30 @@ canvas#starfield {
 
 /* Optional: subtle border glow */
 .aboutus .content {
-  border: 2px solid rgba(0, 255, 255, 0.3);
+  border: 1px solid rgba(0, 255, 255, 0.13);
   border-radius: 15px;
   padding: 40px;
-  background: rgba(0, 0, 0, 0.5); /* translucent to show particles */
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  background: rgba(103, 103, 103, 0.302);
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .aboutus .content h1 {
     font-size: 2.2rem;
-  } 
+  }
+
   .aboutus .content p {
     font-size: 1rem;
   }
 }
-/* Stats container styling */
-.container {
-  padding: 50px 0;
-}
 
+/* Stats container styling */
+.each-node{
+  width: calc(100% / 6);
+  display: flex;
+  justify-content: center;
+}
 .stats-item {
   background: #1e1e1e;
   border-radius: 10px;
@@ -351,7 +366,8 @@ canvas#starfield {
   display: block;
   font-size: 2.5rem;
   font-weight: 700;
-  color: #00d1b2; /* Accent color */
+  color: #00ffff;
+  /* Accent color */
   margin-bottom: 10px;
 }
 
@@ -390,9 +406,10 @@ canvas#starfield {
  %%%%%%%%%%%%%%%%%%%%%%%%%%% */
 .skills {
   background-color: black;
-  padding: 40px 0px;  
+  padding: 40px 0px;
   position: relative;
 }
+
 .skills {
   position: relative;
   overflow: hidden;
@@ -429,15 +446,26 @@ canvas#starfield {
   0% {
     background-position: 0 0, 15px 15px;
   }
+
   100% {
     background-position: 0 30px, 15px 45px;
   }
 }
 
 .skills h2 {
-  color: white;
+  color: #0ff;
+  text-shadow: 0 0 10px #00ffff,
+               0 0 20px #00ffff,
+               0 0 40px #00ffff;
   text-align: center;
   margin-bottom: 20px;
+}
+.MoreAboutSkill p{
+  color: #fff;
+  margin-bottom: 0;
+}
+.MoreAboutSkill {
+  margin-top: 20px;
 }
 
 .stack-card {
@@ -658,61 +686,334 @@ canvas#starfield {
 }
 
 .html5-logo {
-       width: 82px;
-    height: 67px;
-    display: grid;
-    place-items: center;
-    position: relative;
-    overflow: hidden;
+  width: 82px;
+  height: 67px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.shield {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #e44d26 0%, #f16529 100%);
+  clip-path: polygon(10% 0%, 90% 0%, 80% 88%, 50% 100%, 20% 88%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  box-sizing: border-box;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.html-text {
+  font-size: 10px;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.number-5 {
+  font-size: 26px;
+  line-height: 1;
+  z-index: 1;
+}
+
+/* Shine effect */
+.shield::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent 0%, #00ffff67 50%, transparent 100%);
+  transform: skewX(-25deg);
+  animation: shine 2s infinite;
+}
+
+.number {
+  animation: number 2s infinite;
+}
+
+@keyframes number {
+  0% {
+    transform: scale(1)rotateX(0deg);
   }
 
-  .shield {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, #e44d26 0%, #f16529 100%);
-    clip-path: polygon(10% 0%, 90% 0%, 80% 88%, 50% 100%, 20% 88%);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px;
-    box-sizing: border-box;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.4);
-    position: relative;
+  50% {
+    transform: scale(1.2)rotateX(180deg);
   }
 
-  .html-text {
-    font-size: 10px;
-    letter-spacing: 1px;
-    z-index: 1;
+  100% {
+    transform: scale(1)rotateX(360deg);
   }
+}
 
-  .number-5 {
-    font-size: 26px;
-    line-height: 1;
-    z-index: 1;
-  }
-
-  /* Shine effect */
-  .shield::before {
-    content: "";
-    position: absolute;
-    top: 0;
+@keyframes shine {
+  0% {
     left: -150%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent 0%, #00ffff67 50%, transparent 100%);
-    transform: skewX(-25deg);
-    animation: shine 2s infinite;
   }
 
-  @keyframes shine {
-    0% { left: -150%; }
-    50% { left: 100%; }
-    100% { left: 100%; }
+  50% {
+    left: 100%;
   }
+
+  100% {
+    left: 100%;
+  }
+}
+
+/* Place this CSS with your existing HTML5 logo CSS or in the page <head> */
+.css3-logo {
+  width: 82px;
+  height: 67px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  margin: 0 12px;
+  /* spacing if placed side-by-side */
+}
+
+.css3-logo .shield {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #264de4 0%, #2965f1 100%);
+  /* CSS blue */
+  clip-path: polygon(10% 0%, 90% 0%, 80% 88%, 50% 100%, 20% 88%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  box-sizing: border-box;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.css3-logo .css-text {
+  font-size: 10px;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.css3-logo .number-3 {
+  font-size: 30px;
+  line-height: 1;
+  z-index: 1;
+}
+
+/* Shine effect (same timing as HTML5) */
+.css3-logo .shield::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.35) 50%, transparent 100%);
+  transform: skewX(-25deg);
+  animation: shine-css 2s infinite;
+}
+
+@keyframes shine-css {
+  0% {
+    left: -150%;
+  }
+
+  50% {
+    left: 100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+/* optional right highlight panel like official mark */
+.css3-logo .shield::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+  pointer-events: none;
+}
+
+/* small glow around badge to match HTML5 look */
+.css3-logo::after {
+  content: "";
+  position: absolute;
+  inset: -6%;
+  background: radial-gradient(circle at 50% 30%, rgba(41, 101, 241, 0.09), transparent 25%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+.js-logo-real {
+  width: 66px;
+  height: 66px;
+  background: #F7DF1E;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  user-select: none;
+  cursor: default;
+  overflow: hidden;
+}
+
+.js-logo-real .js-text {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 25px;
+  color: #000000;
+  letter-spacing: -2px;
+
+  /* Flip animation */
+  animation: flipText 3s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes flipText {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  50% {
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.bootstrap-logo {
+  width: 66px;
+  height: 66px;
+  background: #7952B3;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.2);
+  user-select: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bs-text {
+  color: white;
+  font-weight: 400;
+  /* normal weight */
+  font-size: 35px;
+  line-height: 1;
+  user-select: none;
+  animation: bounceTXT 2s ease-in-out infinite;
+}
+
+@keyframes bounceTXT {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.text {
+  width: 158px;
+  font-size: 50px;
+  font-weight: bold;
+  background: linear-gradient(270deg, #FF6B6B, #FFD93D, #6BCB77, #4D96FF, #FF6B6B);
+  background-size: 1000% 1000%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 10s ease infinite;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  perspective: 600px;
+  transition: all 0.3s ease;
+  /* for 3D rotation */
+}
+
+.letter-g {
+  display: inline-block;
+  animation: rotateG 5s linear infinite;
+  background: inherit;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hyphen {
+  display: inline-block;
+  overflow: hidden;
+  animation: hyphenAppear 4s ease-in-out infinite;
+  background: inherit;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.letter-gap {
+  display: inline-block;
+}
+
+@keyframes rotateG {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes hyphenAppear {
+
+  0%,
+  20%,
+  50%,
+  100% {
+    opacity: 0;
+    width: 0;
+  }
+
+  25%,
+  45% {
+    opacity: 1;
+    width: 1ch;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%% 
             experience 
