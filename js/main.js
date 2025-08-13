@@ -95,10 +95,10 @@ let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
 
 function updateCursor() {
-  cursorSVG.style.left = mouseX + 'px';
-  cursorSVG.style.top = mouseY + 'px';
-  cursorCircle.style.left = mouseX + 'px';
-  cursorCircle.style.top = mouseY + 'px';
+  cursorSVG.style.left = (mouseX + 8) + 'px';
+  cursorSVG.style.top = (mouseY + 12.2) + 'px';
+  cursorCircle.style.left = (mouseX + 8) + 'px';
+  cursorCircle.style.top = (mouseY + 12.2) + 'px';
   requestAnimationFrame(updateCursor);
 }
 
@@ -222,6 +222,82 @@ if (animatedText) {
     stagger: 0.05
   });
 }
+// ============ project-FileSystem =========
+// সব বাটন, কার্ড, পেজিনেশন বাটন, আর টেক্সট এলিমেন্ট বের করছি
+const buttons = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.card');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const pageInfo = document.getElementById('pageInfo');
+
+// শুরুর ভেরিয়েবল
+let currentPage = 1;
+let cardsPerPage = 3;
+let visibleCards = Array.from(cards); // প্রথমে সব কার্ডই দেখা যাবে
+
+// নির্দিষ্ট পেজের কার্ড দেখানোর ফাংশন
+function showPage(page) {
+  // সব কার্ড লুকানো
+  cards.forEach(card => card.style.display = 'none');
+
+  // কোন কোন কার্ড দেখাতে হবে
+  let start = (page - 1) * cardsPerPage;
+  let end = start + cardsPerPage;
+  visibleCards.slice(start, end).forEach(card => {
+    card.style.display = 'block';
+  });
+
+  // পেজ ইনফো টেক্সট
+  let totalPages = Math.ceil(visibleCards.length / cardsPerPage);
+  pageInfo.textContent = `Page ${page} / ${totalPages}`;
+
+  // বাটন ডিসেবল/এনেবল
+  prevBtn.disabled = (page === 1);
+  nextBtn.disabled = (page === totalPages);
+}
+
+// ফিল্টার বাটনে ক্লিক হলে
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    // একটিই active বাটন থাকবে
+    buttons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    let tech = button.dataset.tech.toLowerCase();
+
+    // ফিল্টার করা কার্ড লিস্ট
+    if (tech === 'all') {
+      visibleCards = Array.from(cards);
+    } else {
+      visibleCards = Array.from(cards).filter(card =>
+        card.dataset.tech.toLowerCase().includes(tech)
+      );
+    }
+
+    currentPage = 1; // প্রথম পেজ থেকে দেখাবে
+    showPage(currentPage);
+  });
+});
+
+// পেজিনেশন বাটন
+prevBtn.addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--;
+    showPage(currentPage);
+  }
+});
+
+nextBtn.addEventListener('click', () => {
+  let totalPages = Math.ceil(visibleCards.length / cardsPerPage);
+  if (currentPage < totalPages) {
+    currentPage++;
+    showPage(currentPage);
+  }
+});
+
+// শুরুতে "All" সিলেক্ট করে দেখানো
+document.querySelector('.filter-btn[data-tech="all"]').classList.add('active');
+showPage(currentPage);
 
 
 // ================= counter ==============

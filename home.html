@@ -17,10 +17,10 @@
 <body class="light-theme">
     <!-- Cursors -->
     <img src="cursor-svg.svg" id="cursorSVG" alt="" class="mw-100 cursor-svg">
-    <img src="cursor-svg.svg" class="cursor-circle" id="cursorCircle">
-    <!-- <div class="cursor-circle" id="cursorCircle">aaaa</div> -->
+    <img src="cursor-svg-hover.svg" class="cursor-circle" id="cursorCircle">
 
-    <div class="social-icon">
+
+    <div class="social-icon d-none">
         <ul>
             <li>
                 <div class="divInner"></div>
@@ -192,7 +192,7 @@
             </div>
         </section>
         <!-- Projects -->
-        <section class="skills bg-animation">
+        <section class="skills bg-animation common-pattern">
             <div class="container">
                 <div class="progress-wrap">
                     <div class="Characters">
@@ -407,6 +407,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+        <section class="technicalSkills common-pattern">
+            <div class="container">
                 <div class="skills-btm ">
                     <div class="section-heading Characters">
                         <h2>Technical Skills</h2>
@@ -529,7 +533,7 @@
                 </div>
             </div>
         </section>
-        <section class="education-section ">
+        <section class="education-section common-pattern">
             <div class="container">
                 <div class="education-card position-relative">
                     <div class="Characters">
@@ -620,145 +624,134 @@
                 </div>
             </div>
         </section>
-        <section class="projectssec bg-animation ">
-            <span>**Project Name:** Portfolio CMS
-                **Description:** A full-stack blog CMS built with React, Express, and MongoDB. Admin panel for dynamic
-                page
-                and blog management.
-                **Tech Used:** React, Express, MongoDB, TinyMCE, Bootstrap
-                [Live Demo] [GitHub]
-
-                **Project Name:** Animated Solar System
-                **Description:** A CSS + HTML simulation of the solar system with rotating planets and orbit animations.
-                **Tech Used:** HTML, CSS, keyframes
-                [View Project]
-            </span>
+        <section class="projectssec common-pattern">
             <div class="container">
+                <div class="projectssecHeading Characters">
+                    <h2>Portfolio</h2>
+                </div>
+                <!-- Filter Controls -->
+                <div class="filter-controls">
+                    <div class="filter-buttons">
+                        <button class="filter-btn" data-tech="all">All</button>
+                        <button class="filter-btn" data-tech="HTML">HTML,Css</button>
+                        <button class="filter-btn" data-tech="JavaScript">JavaScript</button>
+                        <button class="filter-btn" data-tech="React">React</button>
+                        <button class="filter-btn" data-tech="Node.js">Node.js</button>
+                    </div>
+
+                </div>
                 <div class="projects">
-                    <div class="card">
+                    <div class="card" data-tech="HTML CSS">
                         <div class="box">
                             <div class="imgBx">
                                 <img src="https://i.postimg.cc/9QNv3QHB/Photo1.jpg">
                             </div>
                             <div class="contentBx">
                                 <div>
-                                    <h2>Post Title</h2>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
-                                        adipisci
-                                        dolor
-                                        laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet.
-                                        Tempora
-                                        eaque
-                                        tenetur voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                                    <h2>Portfolio Website</h2>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
                                 </div>
+                                <ul>
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" data-tech="JavaScript HTML CSS">
                         <div class="box">
                             <div class="imgBx">
                                 <img src="https://i.postimg.cc/MTZRyqXh/Photo2.jpg">
                             </div>
                             <div class="contentBx">
                                 <div>
-                                    <h2>Post Title</h2>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
-                                        adipisci
-                                        dolor
-                                        laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet.
-                                        Tempora
-                                        eaque
-                                        tenetur
-                                        voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                                    <h2>To-Do App</h2>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
                                 </div>
+                                <ul>
+                                    <li>JavaScript</li>
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" data-tech="React Node.js">
                         <div class="box">
                             <div class="imgBx">
                                 <img src="https://i.postimg.cc/nrgDbmTJ/Photo3.jpg">
                             </div>
                             <div class="contentBx">
                                 <div>
-                                    <h2>Post Title</h2>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
-                                        adipisci
-                                        dolor
-                                        laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet.
-                                        Tempora
-                                        eaque
-                                        tenetur
-                                        voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                                    <h2>Chat Application</h2>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
                                 </div>
+                                <ul>
+                                    <li>React</li>
+                                    <li>Node.js</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" data-tech="HTML CSS JavaScript">
                         <div class="box">
                             <div class="imgBx">
                                 <img src="https://i.postimg.cc/YqTV2qS2/Photo4.jpg">
                             </div>
                             <div class="contentBx">
                                 <div>
-                                    <h2>Post Title</h2>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
-                                        adipisci
-                                        dolor
-                                        laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet.
-                                        Tempora
-                                        eaque
-                                        tenetur
-                                        voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                                    <h2>Landing Page</h2>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
                                 </div>
+                                <ul>
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                    <li>JavaScript</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" data-tech="React">
                         <div class="box">
                             <div class="imgBx">
                                 <img src="https://i.postimg.cc/pTVccmsC/Photo5.jpg">
                             </div>
                             <div class="contentBx">
                                 <div>
-                                    <h2>Post Title</h2>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
-                                        adipisci
-                                        dolor
-                                        laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet.
-                                        Tempora
-                                        eaque
-                                        tenetur
-                                        voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                                    <h2>Gallery App</h2>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
                                 </div>
+                                <ul>
+                                    <li>React</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" data-tech="Node.js">
                         <div class="box">
                             <div class="imgBx">
                                 <img src="https://i.postimg.cc/BbkhvM47/Photo6.jpg">
                             </div>
                             <div class="contentBx">
                                 <div>
-                                    <h2>Post Title</h2>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
-                                        adipisci
-                                        dolor
-                                        laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet.
-                                        Tempora
-                                        eaque
-                                        tenetur
-                                        voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                                    <h2>API Backend</h2>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
                                 </div>
+                                <ul>
+                                    <li>Node.js</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-
+                </div>
+                <div class="pagination">
+                    <button id="prevBtn">Prev</button>
+                    <span id="pageInfo"></span>
+                    <button id="nextBtn">Next</button>
                 </div>
             </div>
         </section>
-        <section id="services" class="services bg-animation">
+        <section id="services" class="services common-pattern">
             <div class="container">
                 <h2 class="section-title">My Services</h2>
                 <div class="service-cards">
@@ -786,22 +779,58 @@
                 </div>
             </div>
         </section>
-        <section class="contact">
-            <div class="contactbox">
-                <div class="contactbox-wrap">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder=" ">
-                        <label>Name</label>
+        <section class="contact common-pattern">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="contactbox">
+                            <div class="contactbox-wrap">
+                                <div class="contact-heading">
+                                    <h2>Leave us your info</h2>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="name" placeholder=" ">
+                                    <label>Your Full Name ( Required)</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="email" placeholder=" ">
+                                    <label>Your Email ( Required)</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="email" placeholder=" ">
+                                    <label>Subject</label>
+                                </div>
+                                <div class="form-group">
+                                    <textarea name="message" placeholder=" "></textarea>
+                                    <label>Your Message</label>
+                                </div>
+                                <button class="ripple-btn btn-cyan"><span class="text">Send Message</span></button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder=" ">
-                        <label>Email</label>
+                    <div class="col-lg-4">
+                        <div class="right-info">
+                            <div class="contact-info">
+                                <h3><i class="fas fa-address-card"></i> Contact Information</h3>
+                                <ul>
+                                    <li><i class="fas fa-globe"></i> <a href="http://www.......com"
+                                            target="_blank">www.......com</a></li>
+                                    <li><i class="fas fa-phone"></i> <a href="tel:8918038315">8918038315</a> / <a
+                                            href="tel:9681436199">9681436199</a></li>
+                                    <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/918918038315"
+                                            target="_blank">+91 89180 38315</a> / <a href="https://wa.me/919681436199"
+                                            target="_blank">+91 96814 36199</a></li>
+                                    <li><i class="fab fa-microsoft"></i> <a href="#" target="_blank">Microsoft Teams</a>
+                                    </li>
+                                    <li><i class="fab fa-discord"></i> <a href="#" target="_blank">Discord</a></li>
+                                    <li><i class="fas fa-city"></i> <a href="#" target="_blank">Kolkata, W.B.</a></li>
+                                    <li><i class="fas fa-envelope"></i> <a
+                                            href="mailto:subhasish94@gmail.com">subhasish94@gmail.com</a></li>
+                                    <li><i class="fas fa-user-slash"></i> <a href="#">Not Available</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder=" "></textarea>
-                        <label>Message</label>
-                    </div>
-                    <button class="ripple-btn btn-cyan"><span class="text">Send Message</span></button>
                 </div>
             </div>
         </section>

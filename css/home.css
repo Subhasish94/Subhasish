@@ -3,6 +3,13 @@ body {
   scroll-behavior: smooth;
   color: #fff;
   cursor: none;
+  background-color: #000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 em {
@@ -11,7 +18,7 @@ em {
 
 a,
 button {
-  cursor: none;
+  cursor: none !important;
 }
 
 /* .section {
@@ -321,45 +328,9 @@ canvas#starfield {
   z-index: 1;
 }
 
-.light-theme {
-  background-color: white;
-  color: black;
-}
-
-.dark-theme {
-  background-color: #121212;
-  color: white;
-}
-
-.navbar-dark .navbar-nav .nav-link {
-  color: white;
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: black;
-}
-
-
-
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%% 
             aboutus 
  %%%%%%%%%%%%%%%%%%%%%%%%%%% */
-/* .aboutus {
-  position: relative;
-  background-color: black;
-}
-
-.aboutus .content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
-}
-
- */
-/* Section styling */
 .aboutus {
   position: relative;
   background: #000;
@@ -598,16 +569,6 @@ canvas#starfield {
   position: relative;
   /* overflow: hidden; */
   padding: 80px 0 50px;
-}
-
-.skills::after {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 91px;
-  background-image: linear-gradient(transparent 12%, #000 86%);
-  content: "";
 }
 
 .progress-wrap {
@@ -1221,6 +1182,10 @@ canvas#starfield {
   }
 }
 
+.technicalSkills {
+  padding: 40px 0;
+}
+
 .skills-btm {
   padding: 40px 30px;
   border: 1px solid rgba(0, 255, 255, 0.13);
@@ -1228,7 +1193,7 @@ canvas#starfield {
   border-radius: 20px;
   box-shadow: inset 0px 0px 20px 3px #0fff;
   background: #1e1e1ec7;
-  margin-bottom: 40px;
+
 }
 
 .section-heading h2 {
@@ -1280,14 +1245,42 @@ canvas#starfield {
   color: white;
 }
 
+.common-pattern {
+  background:
+    /* Top gradient */
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)) top,
+    /* Bottom gradient */
+    linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)) bottom,
+    /* Left gradient */
+    linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)) left,
+    /* Right gradient */
+    linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)) right,
+    /* Main pattern */
+    repeating-linear-gradient(-45deg, #000 0 20px, #1f1f1f 0 40px);
+
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+  background-size:
+    100% 100px,
+    /* top */
+    100% 100px,
+    /* bottom */
+    10px 100%,
+    /* left */
+    50px 100%,
+    /* right */
+    24px 24px;
+  /* pattern */
+  background-position:
+    top,
+    bottom,
+    left,
+    right,
+    left bottom;
+    clip-path: inset(0 round 30px);
+}
 
 .education-section {
   padding: 40px 0 20px;
-  background: repeating-linear-gradient(-45deg,
-      #000 0 20px,
-      #1f1f1f 0 40px);
-  background-size: calc(40px * sqrt(2)) calc(40px * sqrt(2));
-  animation: animate-bg 10s linear infinite;
   position: relative;
   top: 0px;
   color: #fff;
@@ -1409,6 +1402,12 @@ canvas#starfield {
   padding: 40px 0px;
 }
 
+.projectssecHeading {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
 .projects {
   display: flex;
   justify-content: center;
@@ -1456,6 +1455,8 @@ canvas#starfield {
   left: 0;
   width: 100%;
   height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .projects .card .box .imgBx img {
@@ -1473,18 +1474,37 @@ canvas#starfield {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #333;
+  background: #000;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   transform-style: preserve-3d;
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
   -o-transform: rotateY(180deg);
+  row-gap: 10px;
+}
+
+.contentBx ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.contentBx ul li {
+  background: #00ffff;
+  color: #000;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
 }
 
 .projects .card .box .contentBx div {
@@ -1496,6 +1516,8 @@ canvas#starfield {
   -moz-transform: translateZ(100px);
   -ms-transform: translateZ(100px);
   -o-transform: translateZ(100px);
+  border-radius: 20px;
+  height: 100%;
 }
 
 .projects .card .box .contentBx div h2 {
@@ -1507,6 +1529,73 @@ canvas#starfield {
 .projects .card .box .contentBx div p {
   color: #1c1c1c;
   font-size: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.filter-controls {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 6px 12px;
+  border: none;
+  background: #444;
+  color: white;
+  border-radius: 4px;
+  cursor: none !important;
+}
+
+.filter-btn.active {
+  background: #00c6ff;
+}
+
+.filter-btn:hover {
+  background: #666;
+}
+
+.card.hide {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+}
+
+#pageInfo {
+  color: #fff;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 5px 12px;
+  border: none;
+  background: #00ffff;
+  color: #000;
+  border-radius: 5px;
+  cursor: none;
+}
+
+.pagination button:disabled {
+  background: #00ffff70;
+  cursor: not-allowed;
+  color: #fff;
 }
 
 /* ========================  */
@@ -1565,10 +1654,16 @@ canvas#starfield {
 
 /* ========= contact =========== */
 .contact {
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   background-color: #000;
+}
+
+.contact-heading {
+  color: #fff;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .gradient-border {
@@ -1582,8 +1677,6 @@ canvas#starfield {
   overflow: hidden;
   z-index: 1;
 }
-
-
 
 .contact-form {
   position: relative;
@@ -1645,7 +1738,7 @@ canvas#starfield {
 .contactbox {
   position: relative;
   width: 600px;
-  height: 420px;
+  height: 500px;
   background: #1c1c1c;
   border-radius: 24px;
   overflow: hidden;
@@ -1659,7 +1752,7 @@ canvas#starfield {
   top: -50%;
   left: -50%;
   width: 600px;
-  height: 420px;
+  height: 500px;
   transform-origin: bottom right;
   background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
   animation: animate-2 6s linear infinite;
@@ -1672,7 +1765,7 @@ canvas#starfield {
   top: -50%;
   left: -50%;
   width: 600px;
-  height: 420px;
+  height: 500px;
   transform-origin: bottom right;
   background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
   animation: animate-2 6s linear infinite;
@@ -1691,12 +1784,54 @@ canvas#starfield {
 
 .contactbox-wrap {
   position: absolute;
+  left: 0;
   inset: 2px;
-  background: #28292d;
+  background: #000;
   padding: 50px 40px;
   border-radius: 23px;
   z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.right-info {
+  color: #fff;
+  max-width: 350px;
+}
+
+.contact-info {
+  background: #000;
+  padding: 30px 20px;
+  border-radius: 15px;
+  border: 2px solid #00ffff;
+}
+
+.contact-info h3 {
+  color: #00ffff;
+  margin-bottom: 15px;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-info li {
+  margin-bottom: 12px;
+}
+
+.contact-info li i {
+  color: #00ffff;
+  min-width: 20px;
+}
+
+.contact-info a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  color: #00ffff;
 }
