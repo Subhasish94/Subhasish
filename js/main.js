@@ -49,157 +49,78 @@ function animate() {
 
 initStarfield();
 
-// GSAP Animations
-// gsap.from(".glow-text", { opacity: 0, y: -50, duration: 2 });
-// gsap.from(".glow-text p", { opacity: 0, y: 50, delay: 1, duration: 2 });
+// ================= button ================
+document.querySelectorAll('.ripple-btn').forEach(btn => {
+  btn.addEventListener('mouseenter', e => {
+    const ripple = document.createElement('span');
+    ripple.classList.add('ripple');
 
+    const rect = btn.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    ripple.style.width = ripple.style.height = `${size}px`;
+    ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+    ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
 
+    if (btn.classList.contains('btn-cyan')) {
+      ripple.style.backgroundColor = 'rgba(0,0,0,0.6)';
+      btn.style.backgroundColor = '#000';
+      btn.style.color = '#00ffff';
+      btn.style.borderColor = '#00ffff';
+    } else {
+      ripple.style.backgroundColor = 'rgba(0,255,255,0.6)';
+      btn.style.backgroundColor = '#00ffff';
+      btn.style.color = '#000';
+    }
 
-// // Particles.js Initialization
-// particlesJS("particles-js", {
-//   "particles": {
-//     "number": {
-//       "value": 120,
-//       "density": {
-//         "enable": true,
-//         "value_area": 600
-//       }
-//     },
-//     "color": {
-//       "value": "#00ffff"
-//     },
-//     "shape": {
-//       "type": "polygon",
-//       "polygon": {
-//         "nb_sides": 5
-//       }
-//     },
-//     "opacity": {
-//       "value": 0.5,
-//       "random": true
-//     },
-//     "size": {
-//       "value": 3,
-//       "random": true
-//     },
-//     "line_linked": {
-//       "enable": true,
-//       "distance": 100,
-//       "color": "#00ffff",
-//       "opacity": 0.4,
-//       "width": 1
-//     },
-//     "move": {
-//       "enable": true,
-//       "speed": 2,
-//       "direction": "none",
-//       "random": false,
-//       "straight": false,
-//       "out_mode": "out",
-//       "bounce": false
-//     }
-//   },
-//   "interactivity": {
-//     "detect_on": "canvas",
-//     "events": {
-//       "onhover": {
-//         "enable": true,
-//         "mode": "grab"
-//       },
-//       "onclick": {
-//         "enable": true,
-//         "mode": "push"
-//       },
-//       "resize": true
-//     },
-//     "modes": {
-//       "grab": {
-//         "distance": 150,
-//         "line_linked": {
-//           "opacity": 1
-//         }
-//       },
-//       "bubble": {
-//         "distance": 200,
-//         "size": 50,
-//         "duration": 2,
-//         "opacity": 8,
-//         "speed": 3
-//       },
-//       "repulse": {
-//         "distance": 200,
-//         "duration": 0.4
-//       },
-//       "push": {
-//         "particles_nb": 4
-//       },
-//       "remove": {
-//         "particles_nb": 2
-//       }
-//     }
-//   },
-//   "retina_detect": true
-// });
+    btn.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+  });
 
+  btn.addEventListener('mouseleave', () => {
+    if (btn.classList.contains('btn-cyan')) {
+      btn.style.backgroundColor = '#00ffff';
+      btn.style.color = '#000';
+      btn.style.borderColor = 'transparent';
+    } else {
+      btn.style.backgroundColor = '#000';
+      btn.style.color = '#00ffff';
+    }
+  });
+});
+// =============== custom cursor ============
+const cursorSVG = document.getElementById('cursorSVG');
+const cursorCircle = document.getElementById('cursorCircle');
 
-// gsap.registerPlugin(SplitText, ScrollTrigger);
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
 
-// function animateSection(sectionClass, splitType, vars) {
-//   const sections = document.querySelectorAll(sectionClass);
-//   sections.forEach(section => {
-//     section.querySelectorAll("h1,h2,h3,h4,h5,h6,p,ul,li").forEach(el => {
-//       let split = SplitText.create(el, { type: splitType });
-//       gsap.from(split[splitType], {
-//         ...vars,
-//         scrollTrigger: {
-//           trigger: section,
-//           start: "top 80%",
-//           toggleActions: "play none none reverse"
-//         }
-//       });
-//     });
-//   });
-// }
+function updateCursor() {
+  cursorSVG.style.left = mouseX + 'px';
+  cursorSVG.style.top = mouseY + 'px';
+  cursorCircle.style.left = mouseX + 'px';
+  cursorCircle.style.top = mouseY + 'px';
+  requestAnimationFrame(updateCursor);
+}
 
-// // Animate all sections by their class
-// animateSection(".Characters", "chars", {
-//   x: 150,
-//   opacity: 0,
-//   duration: .5,
-//   ease: "power4",
-//   stagger: 0.04
-// });
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
 
-// animateSection(".Words", "words", {
-//   y: -100,
-//   opacity: 0,
-//   rotation: "random(-80, 20)",
-//   duration: 0.5,
-//   ease: "back",
-//   stagger: 0.04
-// });
+// Hover over links and buttons → switch cursor
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursorSVG.style.opacity = '0';
+    cursorCircle.style.opacity = '1';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursorSVG.style.opacity = '1';
+    cursorCircle.style.opacity = '0';
+  });
+});
 
-// animateSection(".Lines", "lines", {
-//   rotationX: -100,
-//   transformOrigin: "50% 50% -160px",
-//   opacity: 0,
-//   duration: 0.8,
-//   ease: "power1",
-//   stagger: 0.2
-// });
-
-// gsap.from(animatedText, {
-//   scrollTrigger: {
-//     trigger: animatedText,
-//     start: "top 90%",
-//     end: "top 40%",
-//     scrub: true,
-//   },
-//   scale: 0.5,
-//   opacity: 0,
-//   duration: 2,
-// });
-
+updateCursor();
+// =========================
 gsap.registerPlugin(ScrollTrigger);
 
 // Custom text splitter
@@ -349,47 +270,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const containers = document.querySelectorAll('.progress-container');
 
+containers.forEach(container => {
+  const circle = container.querySelector('.progress-ring__circle');
+  const r = circle.r.baseVal.value;
+  const c = 2 * Math.PI * r;
+  circle.style.strokeDasharray = c;
+  circle.style.strokeDashoffset = c;
+  container._progressData = { circle, c };
+});
+
+function animateProgressBars() {
   containers.forEach(container => {
-    const circle = container.querySelector('.progress-ring__circle');
-    const r = circle.r.baseVal.value;
-    const c = 2 * Math.PI * r;
-    circle.style.strokeDasharray = c;
-    circle.style.strokeDashoffset = c;
-    container._progressData = { circle, c };
-  });
+    const percent = +container.dataset.percent;
+    const { circle, c } = container._progressData;
+    const text = container.querySelector('.progress-text');
 
-  function animateProgressBars() {
-    containers.forEach(container => {
-      const percent = +container.dataset.percent;
-      const { circle, c } = container._progressData;
-      const text = container.querySelector('.progress-text');
+    gsap.set(circle, { strokeDashoffset: c });
+    text.textContent = "0%";
 
-      gsap.set(circle, { strokeDashoffset: c });
-      text.textContent = "0%";
-
-      gsap.to(circle, {
-        strokeDashoffset: c - (percent / 100) * c,
-        duration: 1.5,
-        ease: "power2.out"
-      });
-
-      const counter = { val: 0 };
-      gsap.to(counter, {
-        val: percent,
-        duration: 1.5,
-        ease: "power2.out",
-        onUpdate: () => {
-          text.textContent = `${Math.round(counter.val)}%`;
-        }
-      });
+    gsap.to(circle, {
+      strokeDashoffset: c - (percent / 100) * c,
+      duration: 1.5,
+      ease: "power2.out"
     });
-  }
 
-  ScrollTrigger.create({
-    trigger: ".progress-grid",
-    start: "top 80%",
-    end: "bottom top",
-    toggleActions: "play none none reset",
-    onEnter: animateProgressBars,
-    onLeaveBack: animateProgressBars
+    const counter = { val: 0 };
+    gsap.to(counter, {
+      val: percent,
+      duration: 1.5,
+      ease: "power2.out",
+      onUpdate: () => {
+        text.textContent = `${Math.round(counter.val)}%`;
+      }
+    });
   });
+}
+
+ScrollTrigger.create({
+  trigger: ".progress-grid",
+  start: "top 80%",
+  end: "bottom top",
+  toggleActions: "play none none reset",
+  onEnter: animateProgressBars,
+  onLeaveBack: animateProgressBars
+});

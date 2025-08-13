@@ -5,9 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My 3D Universe Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="shortcut icon" href="fav.png" type="image/x-icon">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script> -->
     <script src="js/tsparticles.bundle.min.js"></script>
 
 
@@ -15,6 +15,11 @@
 </head>
 
 <body class="light-theme">
+    <!-- Cursors -->
+    <img src="cursor-svg.svg" id="cursorSVG" alt="" class="mw-100 cursor-svg">
+    <img src="cursor-svg.svg" class="cursor-circle" id="cursorCircle">
+    <!-- <div class="cursor-circle" id="cursorCircle">aaaa</div> -->
+
     <div class="social-icon">
         <ul>
             <li>
@@ -64,659 +69,750 @@
             </ul>
         </div>
     </header>
-
-    <!-- Banner -->
-    <section id="universe-banner">
-        <div class="banner-content text-center">
-            <div class="glow-text Characters">
-                <h1>Hello, my name is <br>
-                    <span>Subhasish karmakar</span>
-                </h1>
-            </div>
-            <div class="Lines">
-                <p>
-                    I'm a web designer with extensive experience for over 3+ years. My experience is to create website
-                    designs, graphic designs and much more...
-                </p>
-            </div>
-        </div>
-    </section>
-    <!-- aboutus -->
-    <section class="aboutus">
-        <div id="particles-js"></div>
-        <div class="content ">
-            <div class="Characters">
-                <h2>About Me</h2>
-            </div>
-            <div class="Lines">
-                <p>
-                    I’m a passionate and results-driven Frontend Developer with strong expertise in HTML, CSS,
-                    JavaScript,
-                    and modern frameworks like React.js. Over the years, I’ve expanded my skill set to include backend
-                    development with Node.js, database management with MongoDB, and interactive 3D experiences using
-                    Three.js.
-                </p>
-                <p>
-                    My approach to development combines creativity and technical precision — I enjoy building
-                    responsive,
-                    user-friendly websites, robust server-side applications, and immersive 3D visuals that bring ideas
-                    to
-                    life. I’m confident, highly focused, and quick to adapt to new technologies, ensuring my solutions
-                    are
-                    always modern, efficient, and future-ready.
-                </p>
-                <p>
-                    From designing clean, pixel-perfect interfaces to creating API-driven applications and integrating
-                    3D
-                    models into the browser, I strive to deliver digital experiences that are both visually stunning and
-                    technically sound. My goal is simple: turn concepts into engaging, high-performance products that
-                    make
-                    an impact.
-                </p>
-            </div>
-            <div class="row text-start lines">
-                <div class="col-lg-6">
-                    <ul>
-                        <!-- <li><strong>Birthday:</strong> <span>15 September 1995</span></li> -->
-                        <li><strong>Website:</strong> <a href="#">www.......com</a></li>
-                        <li><strong>Phone:</strong> <span>
-                                <a href="tel:8918038315">8918038315</a> / <a href="tel:9681436199">9681436199</a></span>
-                        </li>
-                        <li><strong>City:</strong> <span>Kolkata, W.B.</span></li>
-                    </ul>
-                </div>
-                <div class="col-lg-6">
-                    <ul>
-                        <!-- <li><strong>Age:</strong> <span>30</span></li> -->
-                        <li><strong>Degree:</strong> <span>Bachelor</span></li>
-                        <li><strong>Email:</strong> <a href="mailto:subhasish94@gmail.com">subhasish94@gmail.com</a>
-                        </li>
-                        <li><strong>Freelance:</strong> <span>Not Available</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row gy-4">
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="stats-item">
-                        <span class="count">232</span>
-                        <p><strong>Happy Clients</strong> <span>consequuntur quae</span></p>
-                    </div>
-                </div><!-- End Stats Item -->
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="stats-item">
-                        <span class="count">521</span>
-                        <p><strong>Projects</strong> <span>adipisci atque cum quia aut</span></p>
-                    </div>
-                </div><!-- End Stats Item -->
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="stats-item">
-                        <span class="count">1453</span>
-                        <p><strong>Hours Of Support</strong> <span>aut commodi quaerat</span></p>
-                    </div>
-                </div><!-- End Stats Item -->
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="stats-item">
-                        <span class="count">32</span>
-                        <p><strong>Hard Workers</strong> <span>rerum asperiores dolor</span></p>
-                    </div>
-                </div><!-- End Stats Item -->
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects -->
-
-    <section class="skills bg-animation">
-        <div class="container">
-            <div class="progress-wrap">
-                <div class="Characters">
-                    <h2>Skills & Expertise</h2>
-                </div>
-                <div class="MoreAboutSkill Lines">
-                    <h6>
-                        Blending creativity, performance, and innovation, I craft web experiences that are visually
-                        captivating, highly functional, and built for the future. Driven by curiosity and precision, I
-                        believe great design only reaches its full potential when paired with exceptional code.
-                    </h6>
-                </div>
-                <div class="progress-section">
-                    <div class="progress-grid">
-                        <div class="each-progrss-bar">
-                            <div class="progress-container" data-percent="75">
-                                <svg class="progress-ring" width="150" height="150">
-                                    <circle class="progress-ring__background" cx="75" cy="75" r="54" />
-                                    <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
-                                </svg>
-                                <div class="each-node">
-                                    <div class="html">
-                                        <div class="html5-logo">
-                                            <div class="shield">
-                                                <div class="html-text">HTML</div>
-                                                <div class="number-5 number">5</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="progress-text">75%</div>
-                                <div class="label">HTML</div>
-                            </div>
-                        </div>
-
-                        <div class="each-progrss-bar">
-                            <div class="progress-container" data-percent="60">
-                                <svg class="progress-ring" width="150" height="150">
-                                    <circle class="progress-ring__background" cx="75" cy="75" r="54" />
-                                    <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
-                                </svg>
-                                <div class="each-node">
-                                    <div class="css">
-                                        <div class="css3-logo">
-                                            <div class="shield">
-                                                <div class="css-text">CSS</div>
-                                                <div class="number-3 number">3</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="progress-text">60%</div>
-                                <div class="label">CSS</div>
-                            </div>
-                        </div>
-
-                        <div class="each-progrss-bar">
-                            <div class="progress-container" data-percent="85">
-                                <svg class="progress-ring" width="150" height="150">
-                                    <circle class="progress-ring__background" cx="75" cy="75" r="54" />
-                                    <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
-                                </svg>
-                                <div class="each-node">
-                                    <div class="js">
-                                        <div class="js-logo-real">
-                                            <div class="js-text">JS</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="progress-text">85%</div>
-                                <div class="label">JavaScript</div>
-                            </div>
-                        </div>
-
-                        <div class="each-progrss-bar">
-                            <div class="progress-container" data-percent="90">
-                                <svg class="progress-ring" width="150" height="150">
-                                    <circle class="progress-ring__background" cx="75" cy="75" r="54" />
-                                    <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
-                                </svg>
-                                <div class="each-node">
-                                    <div class="react-container">
-                                        <div class="oval-1">
-                                            <div class="react-dot"></div>
-                                        </div>
-                                        <div class="oval-2"></div>
-                                        <div class="oval-3"></div>
-                                    </div>
-                                </div>
-                                <div class="progress-text">90%</div>
-                                <div class="label">React</div>
-                            </div>
-                        </div>
-
-                        <div class="each-progrss-bar">
-                            <div class="progress-container" data-percent="85">
-                                <svg class="progress-ring" width="150" height="150">
-                                    <circle class="progress-ring__background" cx="75" cy="75" r="54" />
-                                    <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
-                                </svg>
-                                <div class="each-node">
-                                    <div class="Bootstrap">
-                                        <div class="bootstrap-logo">
-                                            <div class="bs-text">B</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="progress-text">85%</div>
-                                <div class="label">Bootstrap</div>
-                            </div>
-                        </div>
-
-                      
-
-                        <div class="each-progrss-bar">
-                            <div class="progress-container" data-percent="80">
-                                <svg class="progress-ring" width="150" height="150">
-                                    <circle class="progress-ring__background" cx="75" cy="75" r="54" />
-                                    <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
-                                </svg>
-                                <div class="each-node">
-                                    <div class="node-container">
-                                        <div class="polygon-container">
-                                            <div class="polygon"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="progress-text">80%</div>
-                                <div class="label">Node.js</div>
-                            </div>
-                        </div>
-
-                        <div class="each-progrss-bar">
-                            <div class="progress-container" data-percent="75">
-                                <svg class="progress-ring" width="150" height="150">
-                                    <circle class="progress-ring__background" cx="75" cy="75" r="54" />
-                                    <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
-                                </svg>
-                                <div class="each-node">
-                                    <div class="express">
-                                        <div class="square">
-                                            <p>E</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="progress-text">75%</div>
-                                <div class="label">Express.js</div>
-                            </div>
-                        </div>
-
-                        <div class="each-progrss-bar">
-                            <div class="progress-container" data-percent="60">
-                                <svg class="progress-ring" width="150" height="150">
-                                    <circle class="progress-ring__background" cx="75" cy="75" r="54" />
-                                    <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
-                                </svg>
-                                <div class="each-node">
-                                    <div class="gsap">
-                                        <div class="text">
-                                            <span class="letter-g">G</span>
-                                            <span class="hyphen">-</span>
-                                            <span class="letter-gap">SAP</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="progress-text">60%</div>
-                                <div class="label">GSAP</div>
-                            </div>
-                        </div>
-
-                        <div class="each-progrss-bar">
-                            <div class="progress-container" data-percent="90">
-                                <svg class="progress-ring" width="150" height="150">
-                                    <circle class="progress-ring__background" cx="75" cy="75" r="54" />
-                                    <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
-                                </svg>
-                                <div class="each-node">
-                                    <div class="tailwind">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="80px" height="80px"
-                                            viewBox="0 0 32 32">
-                                            <path
-                                                d="M9,13.7q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q11.1,10.9,9,13.7ZM2,22.1q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q4.1,19.3,2,22.1Z"
-                                                fill="none" stroke="#238590" stroke-width="1.5" stroke-linejoin="round"
-                                                stroke-linecap="round"
-                                                style="stroke-dasharray: 120; stroke-dashoffset: 120;">
-                                                <animate attributeName="stroke-dashoffset" from="120" to="0" dur="2s"
-                                                    repeatCount="indefinite" fill="freeze" />
-                                            </path>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="progress-text">90%</div>
-                                <div class="label">Tailwind CSS</div>
-                            </div>
-                        </div>
-                        <div class="each-progrss-bar">
-                            <div class="progress-container" data-percent="80">
-                                <svg class="progress-ring" width="150" height="150">
-                                    <circle class="progress-ring__background" cx="75" cy="75" r="54" />
-                                    <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
-                                </svg>
-                                <div class="each-node">
-                                    <div class="mongo">
-                                        <div class="leaf"></div>
-                                    </div>
-                                </div>
-                                <div class="progress-text">80%</div>
-                                <div class="label">MongoDB</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="skills-btm">
-                <h5>Technical Skills</h5>
+    <main>
+        <!-- Banner -->
+        <section id="universe-banner">
+            <div class="banner-content">
                 <div class="row">
-                    <div class="col-lg-6">
-                        <h6>Frontend Development</h6>
-                        <ul>
-                            <li>Mastery in HTML5, CSS3, JavaScript (ES6+) for building responsive, accessible, and
-                                mobile-first websites.</li>
-                            <li>Proficient in React.js for creating dynamic, component-based user interfaces.</li>
-                        </ul>
+                    <div class="col-lg-6 ">
+                        <div class="bannerleft">
+                            <h1>I’m Subhasish Karmakar
+                                <span class="glow-text ">Front-end</span> Developer
+                            </h1>
+                            <div class="Lines">
+                                <p>
+                                    I'm a web designer with extensive experience for over 3+ years. My experience is to
+                                    create
+                                    website
+                                    designs, graphic designs and much more...
+                                </p>
+                                <a href="css/cv/subhasishCV.pdf" target="_blank" class="ripple-btn btn-black"><span
+                                        class="text">Download cv</span></a>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- aboutus -->
+        <section class="aboutus">
+            <div id="particles-js"></div>
+            <div class="content ">
+                <div class="Characters">
+                    <h2>About Me</h2>
+                </div>
+                <div class="Lines">
+                    <p>
+                        I’m a passionate and results-driven Frontend Developer with strong expertise in HTML, CSS,
+                        JavaScript,
+                        and modern frameworks like React.js. Over the years, I’ve expanded my skill set to include
+                        backend
+                        development with Node.js, database management with MongoDB, and interactive 3D experiences using
+                        Three.js.
+                    </p>
+                    <p>
+                        My approach to development combines creativity and technical precision — I enjoy building
+                        responsive,
+                        user-friendly websites, robust server-side applications, and immersive 3D visuals that bring
+                        ideas
+                        to
+                        life. I’m confident, highly focused, and quick to adapt to new technologies, ensuring my
+                        solutions
+                        are
+                        always modern, efficient, and future-ready.
+                    </p>
+                    <p>
+                        From designing clean, pixel-perfect interfaces to creating API-driven applications and
+                        integrating
+                        3D
+                        models into the browser, I strive to deliver digital experiences that are both visually stunning
+                        and
+                        technically sound. My goal is simple: turn concepts into engaging, high-performance products
+                        that
+                        make
+                        an impact.
+                    </p>
+                </div>
+                <div class="row text-start lines">
                     <div class="col-lg-6">
-                        <h6>Frameworks & Libraries </h6>
                         <ul>
-                            <li>
-                                Bootstrap, Tailwind CSS – Rapid, responsive UI development.
+                            <!-- <li><strong>Birthday:</strong> <span>15 September 1995</span></li> -->
+                            <li><strong>Website:</strong> <a href="#">www.......com</a></li>
+                            <li><strong>Phone:</strong> <span>
+                                    <a href="tel:8918038315">8918038315</a> / <a
+                                        href="tel:9681436199">9681436199</a></span>
                             </li>
-                            <li> GSAP, Three.js – High-performance animations, 3D effects, and immersive interactions.
+                            <li><strong>City:</strong> <span>Kolkata, W.B.</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul>
+                            <!-- <li><strong>Age:</strong> <span>30</span></li> -->
+                            <li><strong>Degree:</strong> <span>Bachelor</span></li>
+                            <li><strong>Email:</strong> <a href="mailto:subhasish94@gmail.com">subhasish94@gmail.com</a>
                             </li>
-                            <li>jQuery – Simplifying complex DOM manipulations and animations where needed.</li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6">
-                        <h6>UI/UX Implementation</h6>
-                        <ul>
-                            <li>Translating Figma, Adobe XD, and PSD designs into pixel-perfect, production-ready code.
-                            </li>
-                            <li>Optimizing for usability, clarity, and accessibility (WCAG standards).</li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6">
-                        <h6>Animation & Visual Effects</h6>
-                        <ul>
-                            <li>Creating engaging animations and transitions using CSS animations and JavaScript.</li>
-                            <li>Implementing parallax scrolling effects and 3D transformations for enhanced user
-                                experience.
-                            </li>
-                            <li>Crafting smooth transitions, parallax effects, hover animations, and micro-interactions
-                                to
-                                enhance user engagement.</li>
-                            <li>Developing 3D scenes and motion graphics for creative storytelling.</li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6">
-                        <h6>Performance Optimization</h6>
-                        <ul>
-                            <li>Writing clean, maintainable, and modular code.</li>
-                            <li>Improving site speed, SEO, and accessibility through optimization strategies.</li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6">
-                        <h6>Version Control & Collaboration</h6>
-                        <ul>
-                            <li>Git & GitHub for team collaboration and project management. </li>
-                            <li> Familiarity with agile workflows and CI/CD integration.</li>
+                            <li><strong>Freelance:</strong> <span>Not Available</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="bg-warning">
-                        <h5>Professional Strengths</h5>
-                        <ul>
-                            <li>
-                                Creative Problem-Solving – Finding innovative solutions to design and development
-                                challenges.
-                            </li>
-                            <li> Eye for Detail – Every element, from color palettes to animation timing, is crafted
-                                with
-                                precision.</li>
-                            <li>
-                                Adaptability – Thrives in fast-paced environments and adapts quickly to new
-                                technologies.
-                            </li>
-                            <li>
-                                Continuous Learning – Always exploring modern trends, frameworks, and techniques to stay
-                                ahead.
-                            </li>
-                            <li> Client-Centered Approach – Understanding the vision and transforming it into a
-                                functional,
-                                engaging product.</li>
-                        </ul>
+            <div class="container">
+                <div class="row gy-4">
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item">
+                            <span class="count">232</span>
+                            <p><strong>Happy Clients</strong> <span>consequuntur quae</span></p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item">
+                            <span class="count">521</span>
+                            <p><strong>Projects</strong> <span>adipisci atque cum quia aut</span></p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item">
+                            <span class="count">1453</span>
+                            <p><strong>Hours Of Support</strong> <span>aut commodi quaerat</span></p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item">
+                            <span class="count">32</span>
+                            <p><strong>Hard Workers</strong> <span>rerum asperiores dolor</span></p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                </div>
+            </div>
+        </section>
+        <!-- Projects -->
+        <section class="skills bg-animation">
+            <div class="container">
+                <div class="progress-wrap">
+                    <div class="Characters">
+                        <h2>Skills & Expertise</h2>
+                    </div>
+                    <div class="MoreAboutSkill Lines">
+                        <h6>
+                            Blending creativity, performance, and innovation, I craft web experiences that are visually
+                            captivating, highly functional, and built for the future. Driven by curiosity and precision,
+                            I
+                            believe great design only reaches its full potential when paired with exceptional code.
+                        </h6>
+                    </div>
+                    <div class="progress-section">
+                        <div class="progress-grid">
+                            <div class="each-progrss-bar">
+                                <div class="progress-container" data-percent="75">
+                                    <svg class="progress-ring" width="150" height="150">
+                                        <circle class="progress-ring__background" cx="75" cy="75" r="54" />
+                                        <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
+                                    </svg>
+                                    <div class="each-node">
+                                        <div class="html">
+                                            <div class="html5-logo">
+                                                <div class="shield">
+                                                    <div class="html-text">HTML</div>
+                                                    <div class="number-5 number">5</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="progress-text">75%</div>
+                                    <div class="label">HTML</div>
+                                </div>
+                            </div>
+
+                            <div class="each-progrss-bar">
+                                <div class="progress-container" data-percent="60">
+                                    <svg class="progress-ring" width="150" height="150">
+                                        <circle class="progress-ring__background" cx="75" cy="75" r="54" />
+                                        <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
+                                    </svg>
+                                    <div class="each-node">
+                                        <div class="css">
+                                            <div class="css3-logo">
+                                                <div class="shield">
+                                                    <div class="css-text">CSS</div>
+                                                    <div class="number-3 number">3</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="progress-text">60%</div>
+                                    <div class="label">CSS</div>
+                                </div>
+                            </div>
+
+                            <div class="each-progrss-bar">
+                                <div class="progress-container" data-percent="85">
+                                    <svg class="progress-ring" width="150" height="150">
+                                        <circle class="progress-ring__background" cx="75" cy="75" r="54" />
+                                        <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
+                                    </svg>
+                                    <div class="each-node">
+                                        <div class="js">
+                                            <div class="js-logo-real">
+                                                <div class="js-text">JS</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="progress-text">85%</div>
+                                    <div class="label">JavaScript</div>
+                                </div>
+                            </div>
+
+                            <div class="each-progrss-bar">
+                                <div class="progress-container" data-percent="90">
+                                    <svg class="progress-ring" width="150" height="150">
+                                        <circle class="progress-ring__background" cx="75" cy="75" r="54" />
+                                        <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
+                                    </svg>
+                                    <div class="each-node">
+                                        <div class="react-container">
+                                            <div class="oval-1">
+                                                <div class="react-dot"></div>
+                                            </div>
+                                            <div class="oval-2"></div>
+                                            <div class="oval-3"></div>
+                                        </div>
+                                    </div>
+                                    <div class="progress-text">90%</div>
+                                    <div class="label">React</div>
+                                </div>
+                            </div>
+
+                            <div class="each-progrss-bar">
+                                <div class="progress-container" data-percent="85">
+                                    <svg class="progress-ring" width="150" height="150">
+                                        <circle class="progress-ring__background" cx="75" cy="75" r="54" />
+                                        <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
+                                    </svg>
+                                    <div class="each-node">
+                                        <div class="Bootstrap">
+                                            <div class="bootstrap-logo">
+                                                <div class="bs-text">B</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="progress-text">85%</div>
+                                    <div class="label">Bootstrap</div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="each-progrss-bar">
+                                <div class="progress-container" data-percent="80">
+                                    <svg class="progress-ring" width="150" height="150">
+                                        <circle class="progress-ring__background" cx="75" cy="75" r="54" />
+                                        <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
+                                    </svg>
+                                    <div class="each-node">
+                                        <div class="node-container">
+                                            <div class="polygon-container">
+                                                <div class="polygon"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="progress-text">80%</div>
+                                    <div class="label">Node.js</div>
+                                </div>
+                            </div>
+
+                            <div class="each-progrss-bar">
+                                <div class="progress-container" data-percent="75">
+                                    <svg class="progress-ring" width="150" height="150">
+                                        <circle class="progress-ring__background" cx="75" cy="75" r="54" />
+                                        <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
+                                    </svg>
+                                    <div class="each-node">
+                                        <div class="express">
+                                            <div class="square">
+                                                <p>E</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="progress-text">75%</div>
+                                    <div class="label">Express.js</div>
+                                </div>
+                            </div>
+
+                            <div class="each-progrss-bar">
+                                <div class="progress-container" data-percent="60">
+                                    <svg class="progress-ring" width="150" height="150">
+                                        <circle class="progress-ring__background" cx="75" cy="75" r="54" />
+                                        <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
+                                    </svg>
+                                    <div class="each-node">
+                                        <div class="gsap">
+                                            <div class="text">
+                                                <span class="letter-g">G</span>
+                                                <span class="hyphen">-</span>
+                                                <span class="letter-gap">SAP</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="progress-text">60%</div>
+                                    <div class="label">GSAP</div>
+                                </div>
+                            </div>
+
+                            <div class="each-progrss-bar">
+                                <div class="progress-container" data-percent="90">
+                                    <svg class="progress-ring" width="150" height="150">
+                                        <circle class="progress-ring__background" cx="75" cy="75" r="54" />
+                                        <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
+                                    </svg>
+                                    <div class="each-node">
+                                        <div class="tailwind">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="80px" height="80px"
+                                                viewBox="0 0 32 32">
+                                                <path
+                                                    d="M9,13.7q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q11.1,10.9,9,13.7ZM2,22.1q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q4.1,19.3,2,22.1Z"
+                                                    fill="none" stroke="#238590" stroke-width="1.5"
+                                                    stroke-linejoin="round" stroke-linecap="round"
+                                                    style="stroke-dasharray: 120; stroke-dashoffset: 120;">
+                                                    <animate attributeName="stroke-dashoffset" from="120" to="0"
+                                                        dur="2s" repeatCount="indefinite" fill="freeze" />
+                                                </path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="progress-text">90%</div>
+                                    <div class="label">Tailwind CSS</div>
+                                </div>
+                            </div>
+                            <div class="each-progrss-bar">
+                                <div class="progress-container" data-percent="80">
+                                    <svg class="progress-ring" width="150" height="150">
+                                        <circle class="progress-ring__background" cx="75" cy="75" r="54" />
+                                        <circle class="progress-ring__circle" cx="75" cy="75" r="54" />
+                                    </svg>
+                                    <div class="each-node">
+                                        <div class="mongo">
+                                            <div class="leaf"></div>
+                                        </div>
+                                    </div>
+                                    <div class="progress-text">80%</div>
+                                    <div class="label">MongoDB</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="bg-light">
-                        <h5>🚀 My Development Philosophy</h5>
-                        <p>
-                            I believe a website should tell a story, feel alive, and inspire action. My mission is to
-                            create experiences where design meets technology seamlessly — delivering projects that are
-                            not only aesthetically stunning but also technically robust. From crafting smooth animations
-                            to ensuring pixel-perfect layouts, I aim to make every project an unforgettable digital
-                            journey.
+                <div class="skills-btm ">
+                    <div class="section-heading Characters">
+                        <h2>Technical Skills</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h6>Frontend Development</h6>
+                            <ul>
+                                <li>Mastery in HTML5, CSS3, JavaScript (ES6+) for building responsive, accessible, and
+                                    mobile-first websites.</li>
+                                <li>Proficient in React.js for creating dynamic, component-based user interfaces.</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6>Frameworks & Libraries </h6>
+                            <ul>
+                                <li>
+                                    Bootstrap, Tailwind CSS – Rapid, responsive UI development.
+                                </li>
+                                <li> GSAP, Three.js – High-performance animations, 3D effects, and immersive
+                                    interactions.
+                                </li>
+                                <li>jQuery – Simplifying complex DOM manipulations and animations where needed.</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6>UI/UX Implementation</h6>
+                            <ul>
+                                <li>Translating Figma, Adobe XD, and PSD designs into pixel-perfect, production-ready
+                                    code.
+                                </li>
+                                <li>Optimizing for usability, clarity, and accessibility (WCAG standards).</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6>Animation & Visual Effects</h6>
+                            <ul>
+                                <li>Creating engaging animations and transitions using CSS animations and JavaScript.
+                                </li>
+                                <li>Implementing parallax scrolling effects and 3D transformations for enhanced user
+                                    experience.
+                                </li>
+                                <li>Crafting smooth transitions, parallax effects, hover animations, and
+                                    micro-interactions
+                                    to
+                                    enhance user engagement.</li>
+                                <li>Developing 3D scenes and motion graphics for creative storytelling.</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6>Performance Optimization</h6>
+                            <ul>
+                                <li>Writing clean, maintainable, and modular code.</li>
+                                <li>Improving site speed, SEO, and accessibility through optimization strategies.</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6>Version Control & Collaboration</h6>
+                            <ul>
+                                <li>Git & GitHub for team collaboration and project management. </li>
+                                <li> Familiarity with agile workflows and CI/CD integration.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="">
+                                <h6>Professional Strengths</h6>
+                                <ul>
+                                    <li>
+                                        Creative Problem-Solving – Finding innovative solutions to design and
+                                        development
+                                        challenges.
+                                    </li>
+                                    <li> Eye for Detail – Every element, from color palettes to animation timing, is
+                                        crafted
+                                        with
+                                        precision.</li>
+                                    <li>
+                                        Adaptability – Thrives in fast-paced environments and adapts quickly to new
+                                        technologies.
+                                    </li>
+                                    <li>
+                                        Continuous Learning – Always exploring modern trends, frameworks, and techniques
+                                        to
+                                        stay
+                                        ahead.
+                                    </li>
+                                    <li> Client-Centered Approach – Understanding the vision and transforming it into a
+                                        functional,
+                                        engaging product.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="">
+                                <h6>My Development Philosophy</h6>
+                                <ul>
+                                    <li>
+                                        I believe a website should tell a story, feel alive, and inspire action. My
+                                        mission
+                                        is
+                                        to
+                                        create experiences where design meets technology seamlessly — delivering
+                                        projects
+                                        that
+                                        are
+                                        not only aesthetically stunning but also technically robust. From crafting
+                                        smooth
+                                        animations
+                                        to ensuring pixel-perfect layouts, I aim to make every project an unforgettable
+                                        digital
+                                        journey.
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="education-section ">
+            <div class="container">
+                <div class="education-card position-relative">
+                    <div class="Characters">
+                        <h2 class="education-card-title "> Education</h2>
+                    </div>
+                    <div class="education-card-subtitle">A concise timeline of academic achievements that shaped my
+                        technical foundation and hands-on skills.</div>
+
+                    <div class="education-item">
+                        <div class="edu-left">
+                            <h6>Diploma in Electronics &amp; Telecommunication Engineering — Kanad
+                                Institute of Engineering</h6>
+                            <div class="edu-period">2016 — 2019</div>
+                            <div class="edu-desc">Developed <strong>advanced knowledge</strong> in electronics,
+                                communication systems, and embedded technology. Worked on real-time projects involving
+                                microcontrollers, signal processing, and network systems. Actively participated in
+                                technical
+                                workshops, group projects, and presentations to strengthen problem-solving and teamwork
+                                skills.</div>
+
+                            <ul class="bullets">
+                                <li><strong>Key Projects:</strong> Designed an IoT wireless communication module for
+                                    remote
+                                    monitoring.</li>
+                                <li><strong>Technical Skills:</strong> Embedded C, PCB design, MCU interfacing, SPI/I2C
+                                    communication.</li>
+                                <li><strong>Achievements:</strong> Presented work at inter-college tech fests;
+                                    recognized
+                                    for innovative design.</li>
+                            </ul>
+                        </div>
+                        <div class="edu-meta">
+                            <div class="chip">Embedded Systems</div>
+                            Microcontrollers • Signal Processing
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="edu-left">
+                            <h6>Diploma in Electronics &amp; Telecommunication Engineering —
+                                Santiniketan
+                                Institute of Polytechnic</h6>
+                            <div class="edu-period">2014 — 2016</div>
+                            <div class="edu-desc">Built a strong foundation in circuit design, electrical systems, and
+                                telecommunications technology. Participated in hands-on lab sessions to design and test
+                                prototype models, which strengthened practical implementation skills and troubleshooting
+                                abilities.</div>
+
+                            <ul class="bullets">
+                                <li><strong>Focus Areas:</strong> Analog &amp; digital electronics, RF basics, power
+                                    systems.</li>
+                                <li><strong>Hands-On:</strong> Soldering, oscilloscope measurements, prototype testing.
+                                </li>
+                                <li><strong>Soft Skills:</strong> Adaptability to new tools and fast-changing technology
+                                    stacks.</li>
+                            </ul>
+                        </div>
+                        <div class="edu-meta">
+                            <div class="chip">Circuit Design</div>
+                            Prototyping • Test &amp; Debug
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="edu-left">
+                            <h6>Secondary &amp; Higher Secondary Education — State Board</h6>
+                            <div class="edu-period">2011 &amp; 2014</div>
+                            <div class="edu-desc">Completed foundational studies with a focus on science and
+                                mathematics,
+                                which laid the groundwork for analytical thinking and logical problem solving. Engaged
+                                in
+                                science exhibitions and technical competitions that ignited curiosity and creative
+                                experimentation from an early age.</div>
+
+                            <ul class="bullets">
+                                <li><strong>Highlights:</strong> Built working models such as a solar-powered motor and
+                                    a
+                                    basic wireless transmitter for school exhibitions.</li>
+                                <li><strong>Extracurriculars:</strong> Debate, cultural programs, and science fairs that
+                                    improved communication and presentation skills.</li>
+                            </ul>
+                        </div>
+                        <div class="edu-meta">
+                            <div class="chip">Foundations</div>
+                            Science • Mathematics
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="projectssec bg-animation ">
+            <span>**Project Name:** Portfolio CMS
+                **Description:** A full-stack blog CMS built with React, Express, and MongoDB. Admin panel for dynamic
+                page
+                and blog management.
+                **Tech Used:** React, Express, MongoDB, TinyMCE, Bootstrap
+                [Live Demo] [GitHub]
+
+                **Project Name:** Animated Solar System
+                **Description:** A CSS + HTML simulation of the solar system with rotating planets and orbit animations.
+                **Tech Used:** HTML, CSS, keyframes
+                [View Project]
+            </span>
+            <div class="container">
+                <div class="projects">
+                    <div class="card">
+                        <div class="box">
+                            <div class="imgBx">
+                                <img src="https://i.postimg.cc/9QNv3QHB/Photo1.jpg">
+                            </div>
+                            <div class="contentBx">
+                                <div>
+                                    <h2>Post Title</h2>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
+                                        adipisci
+                                        dolor
+                                        laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet.
+                                        Tempora
+                                        eaque
+                                        tenetur voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <div class="imgBx">
+                                <img src="https://i.postimg.cc/MTZRyqXh/Photo2.jpg">
+                            </div>
+                            <div class="contentBx">
+                                <div>
+                                    <h2>Post Title</h2>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
+                                        adipisci
+                                        dolor
+                                        laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet.
+                                        Tempora
+                                        eaque
+                                        tenetur
+                                        voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <div class="imgBx">
+                                <img src="https://i.postimg.cc/nrgDbmTJ/Photo3.jpg">
+                            </div>
+                            <div class="contentBx">
+                                <div>
+                                    <h2>Post Title</h2>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
+                                        adipisci
+                                        dolor
+                                        laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet.
+                                        Tempora
+                                        eaque
+                                        tenetur
+                                        voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <div class="imgBx">
+                                <img src="https://i.postimg.cc/YqTV2qS2/Photo4.jpg">
+                            </div>
+                            <div class="contentBx">
+                                <div>
+                                    <h2>Post Title</h2>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
+                                        adipisci
+                                        dolor
+                                        laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet.
+                                        Tempora
+                                        eaque
+                                        tenetur
+                                        voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <div class="imgBx">
+                                <img src="https://i.postimg.cc/pTVccmsC/Photo5.jpg">
+                            </div>
+                            <div class="contentBx">
+                                <div>
+                                    <h2>Post Title</h2>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
+                                        adipisci
+                                        dolor
+                                        laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet.
+                                        Tempora
+                                        eaque
+                                        tenetur
+                                        voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <div class="imgBx">
+                                <img src="https://i.postimg.cc/BbkhvM47/Photo6.jpg">
+                            </div>
+                            <div class="contentBx">
+                                <div>
+                                    <h2>Post Title</h2>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
+                                        adipisci
+                                        dolor
+                                        laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet.
+                                        Tempora
+                                        eaque
+                                        tenetur
+                                        voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section id="services" class="services bg-animation">
+            <div class="container">
+                <h2 class="section-title">My Services</h2>
+                <div class="service-cards">
+                    <div class="service-card">
+                        <i class="icon fas fa-laptop-code"></i>
+                        <h3>Web Design</h3>
+                        <p>Creating responsive, user-friendly, and visually appealing websites tailored to client needs.
                         </p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="education-section bg-animation">
-        <div class="container">
-            <div class="education-card position-relative">
-                <div class="education-card-title">🎓 Education</div>
-                <div class="education-card-subtitle">A concise timeline of academic achievements that shaped my
-                    technical foundation and hands-on skills.</div>
-
-                <div class="education-item">
-                    <div class="edu-left">
-                        <div class="edu-title">Diploma in Electronics &amp; Telecommunication Engineering — Kanad
-                            Institute of Engineering</div>
-                        <div class="edu-period">2016 — 2019</div>
-                        <div class="edu-desc">Developed <strong>advanced knowledge</strong> in electronics,
-                            communication systems, and embedded technology. Worked on real-time projects involving
-                            microcontrollers, signal processing, and network systems. Actively participated in technical
-                            workshops, group projects, and presentations to strengthen problem-solving and teamwork
-                            skills.</div>
-
-                        <ul class="bullets">
-                            <li><strong>Key Projects:</strong> Designed an IoT wireless communication module for remote
-                                monitoring.</li>
-                            <li><strong>Technical Skills:</strong> Embedded C, PCB design, MCU interfacing, SPI/I2C
-                                communication.</li>
-                            <li><strong>Achievements:</strong> Presented work at inter-college tech fests; recognized
-                                for innovative design.</li>
-                        </ul>
+                    <div class="service-card">
+                        <i class="icon fas fa-mobile-alt"></i>
+                        <h3>Responsive Design</h3>
+                        <p>Ensuring websites look great on all devices, from desktops to mobile phones.</p>
                     </div>
-                    <div class="edu-meta">
-                        <div class="chip">Embedded Systems</div>
-                        Microcontrollers • Signal Processing
+                    <div class="service-card">
+                        <i class="icon fas fa-paint-brush"></i>
+                        <h3>UI/UX Design</h3>
+                        <p>Designing interfaces that enhance user experience and increase engagement.</p>
                     </div>
-                </div>
-
-                <div class="education-item">
-                    <div class="edu-left">
-                        <div class="edu-title">Diploma in Electronics &amp; Telecommunication Engineering — Santiniketan
-                            Institute of Polytechnic</div>
-                        <div class="edu-period">2014 — 2016</div>
-                        <div class="edu-desc">Built a strong foundation in circuit design, electrical systems, and
-                            telecommunications technology. Participated in hands-on lab sessions to design and test
-                            prototype models, which strengthened practical implementation skills and troubleshooting
-                            abilities.</div>
-
-                        <ul class="bullets">
-                            <li><strong>Focus Areas:</strong> Analog &amp; digital electronics, RF basics, power
-                                systems.</li>
-                            <li><strong>Hands-On:</strong> Soldering, oscilloscope measurements, prototype testing.</li>
-                            <li><strong>Soft Skills:</strong> Adaptability to new tools and fast-changing technology
-                                stacks.</li>
-                        </ul>
-                    </div>
-                    <div class="edu-meta">
-                        <div class="chip">Circuit Design</div>
-                        Prototyping • Test &amp; Debug
-                    </div>
-                </div>
-
-                <div class="education-item">
-                    <div class="edu-left">
-                        <div class="edu-title">Secondary &amp; Higher Secondary Education — State Board</div>
-                        <div class="edu-period">2011 &amp; 2014</div>
-                        <div class="edu-desc">Completed foundational studies with a focus on science and mathematics,
-                            which laid the groundwork for analytical thinking and logical problem solving. Engaged in
-                            science exhibitions and technical competitions that ignited curiosity and creative
-                            experimentation from an early age.</div>
-
-                        <ul class="bullets">
-                            <li><strong>Highlights:</strong> Built working models such as a solar-powered motor and a
-                                basic wireless transmitter for school exhibitions.</li>
-                            <li><strong>Extracurriculars:</strong> Debate, cultural programs, and science fairs that
-                                improved communication and presentation skills.</li>
-                        </ul>
-                    </div>
-                    <div class="edu-meta">
-                        <div class="chip">Foundations</div>
-                        Science • Mathematics
+                    <div class="service-card">
+                        <i class="icon fas fa-code"></i>
+                        <h3>Frontend Development</h3>
+                        <p>Implementing modern HTML, CSS, and JavaScript solutions for interactive web pages.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-
-
-
-    <section class="projectssec bg-animation">
-        <span>**Project Name:** Portfolio CMS
-            **Description:** A full-stack blog CMS built with React, Express, and MongoDB. Admin panel for dynamic page
-            and blog management.
-            **Tech Used:** React, Express, MongoDB, TinyMCE, Bootstrap
-            [Live Demo] [GitHub]
-
-            **Project Name:** Animated Solar System
-            **Description:** A CSS + HTML simulation of the solar system with rotating planets and orbit animations.
-            **Tech Used:** HTML, CSS, keyframes
-            [View Project]
-        </span>
-        <div class="container">
-            <div class="projects">
-                <div class="card">
-                    <div class="box">
-                        <div class="imgBx">
-                            <img src="https://i.postimg.cc/9QNv3QHB/Photo1.jpg">
-                        </div>
-                        <div class="contentBx">
-                            <div>
-                                <h2>Post Title</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
-                                    adipisci
-                                    dolor
-                                    laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet. Tempora
-                                    eaque
-                                    tenetur voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
-                            </div>
-                        </div>
+        </section>
+        <section class="contact">
+            <div class="contactbox">
+                <div class="contactbox-wrap">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder=" ">
+                        <label>Name</label>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="box">
-                        <div class="imgBx">
-                            <img src="https://i.postimg.cc/MTZRyqXh/Photo2.jpg">
-                        </div>
-                        <div class="contentBx">
-                            <div>
-                                <h2>Post Title</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
-                                    adipisci
-                                    dolor
-                                    laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet. Tempora
-                                    eaque
-                                    tenetur
-                                    voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder=" ">
+                        <label>Email</label>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="box">
-                        <div class="imgBx">
-                            <img src="https://i.postimg.cc/nrgDbmTJ/Photo3.jpg">
-                        </div>
-                        <div class="contentBx">
-                            <div>
-                                <h2>Post Title</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
-                                    adipisci
-                                    dolor
-                                    laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet. Tempora
-                                    eaque
-                                    tenetur
-                                    voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder=" "></textarea>
+                        <label>Message</label>
                     </div>
+                    <button class="ripple-btn btn-cyan"><span class="text">Send Message</span></button>
                 </div>
-                <div class="card">
-                    <div class="box">
-                        <div class="imgBx">
-                            <img src="https://i.postimg.cc/YqTV2qS2/Photo4.jpg">
-                        </div>
-                        <div class="contentBx">
-                            <div>
-                                <h2>Post Title</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
-                                    adipisci
-                                    dolor
-                                    laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet. Tempora
-                                    eaque
-                                    tenetur
-                                    voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="box">
-                        <div class="imgBx">
-                            <img src="https://i.postimg.cc/pTVccmsC/Photo5.jpg">
-                        </div>
-                        <div class="contentBx">
-                            <div>
-                                <h2>Post Title</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
-                                    adipisci
-                                    dolor
-                                    laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet. Tempora
-                                    eaque
-                                    tenetur
-                                    voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="box">
-                        <div class="imgBx">
-                            <img src="https://i.postimg.cc/BbkhvM47/Photo6.jpg">
-                        </div>
-                        <div class="contentBx">
-                            <div>
-                                <h2>Post Title</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, corporis
-                                    adipisci
-                                    dolor
-                                    laboriosam ullam libero exercitationem repudiandae molestias iusto eveniet. Tempora
-                                    eaque
-                                    tenetur
-                                    voluptatibus corporis dolorem minus nostrum voluptate voluptas!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/gsap.min.js"></script>
     <script src="js/particles.min.js"></script>
-    <!-- <script src="https://assets.codepen.io/16327/SplitText3.min.js"></script> -->
-
-    <!-- <script src="js/SplitText3.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> -->
     <script type="module" src="js/main.js"></script>
 
     <!-- Your Initialization Script -->
