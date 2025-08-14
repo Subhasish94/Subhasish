@@ -1,53 +1,53 @@
-import * as THREE from 'https://cdn.skypack.dev/three@0.152.2';
+// import * as THREE from 'https://cdn.skypack.dev/three@0.152.2';
 
-// Theme Toggle
-document.getElementById("themeToggle").addEventListener("click", () => {
-  document.body.classList.toggle("dark-theme");
-  document.body.classList.toggle("light-theme");
-});
+// // Theme Toggle
+// document.getElementById("themeToggle").addEventListener("click", () => {
+//   document.body.classList.toggle("dark-theme");
+//   document.body.classList.toggle("light-theme");
+// });
 
-// Starfield Three.js Scene
-let scene, camera, renderer, stars;
+// // Starfield Three.js Scene
+// let scene, camera, renderer, stars;
 
-function initStarfield() {
-  const banner = document.getElementById("universe-banner");
-  const width = banner.clientWidth;
-  const height = banner.clientHeight;
+// function initStarfield() {
+//   const banner = document.getElementById("universe-banner");
+//   const width = banner.clientWidth;
+//   const height = banner.clientHeight;
 
-  scene = new THREE.Scene();
-  camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-  camera.position.z = 1;
+//   scene = new THREE.Scene();
+//   camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+//   camera.position.z = 1;
 
-  renderer = new THREE.WebGLRenderer({ alpha: true });
-  renderer.setSize(width, height);
-  renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.domElement.id = 'starfield';
-  banner.appendChild(renderer.domElement);
+//   renderer = new THREE.WebGLRenderer({ alpha: true });
+//   renderer.setSize(width, height);
+//   renderer.setPixelRatio(window.devicePixelRatio);
+//   renderer.domElement.id = 'starfield';
+//   banner.appendChild(renderer.domElement);
 
-  const starGeometry = new THREE.BufferGeometry();
-  const starCount = 2000;
-  const starPositions = new Float32Array(starCount * 3);
+//   const starGeometry = new THREE.BufferGeometry();
+//   const starCount = 2000;
+//   const starPositions = new Float32Array(starCount * 3);
 
-  for (let i = 0; i < starCount * 3; i++) {
-    starPositions[i] = (Math.random() - 0.5) * 2000;
-  }
+//   for (let i = 0; i < starCount * 3; i++) {
+//     starPositions[i] = (Math.random() - 0.5) * 2000;
+//   }
 
-  starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
-  const starMaterial = new THREE.PointsMaterial({ color: 0x00ffff, size: 1, sizeAttenuation: true });
-  stars = new THREE.Points(starGeometry, starMaterial);
-  scene.add(stars);
+//   starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+//   const starMaterial = new THREE.PointsMaterial({ color: 0x00ffff, size: 1, sizeAttenuation: true });
+//   stars = new THREE.Points(starGeometry, starMaterial);
+//   scene.add(stars);
 
-  animate();
-}
+//   animate();
+// }
 
-function animate() {
-  requestAnimationFrame(animate);
-  stars.rotation.x += 0.0005;
-  stars.rotation.y += 0.0005;
-  renderer.render(scene, camera);
-}
+// function animate() {
+//   requestAnimationFrame(animate);
+//   stars.rotation.x += 0.0005;
+//   stars.rotation.y += 0.0005;
+//   renderer.render(scene, camera);
+// }
 
-initStarfield();
+// initStarfield();
 
 // ================= button ================
 document.querySelectorAll('.ripple-btn').forEach(btn => {
@@ -389,4 +389,26 @@ ScrollTrigger.create({
   toggleActions: "play none none reset",
   onEnter: animateProgressBars,
   onLeaveBack: animateProgressBars
+});
+
+
+const menuBtn = document.querySelector('.menu-btn');
+const nav = document.querySelector('nav');
+const links = document.querySelectorAll('nav ul li a');
+const navTitle = document.querySelector('nav h2');
+const body = document.body;
+
+let menuOpen = false;
+
+const tl = gsap.timeline({ defaults: { duration: 0.6, ease: "power3.inOut" }, paused: true });
+
+tl.to(nav, { right: 0 })
+  .to(links, { opacity: 1, pointerEvents: "all", stagger: 0.2 }, "-=0.4")
+  .to(navTitle, { opacity: 1 }, "-=0.4");
+
+menuBtn.addEventListener('click', () => {
+  menuOpen = !menuOpen;
+  menuBtn.classList.toggle('active');
+  body.classList.toggle('overflow-hidden');
+  menuOpen ? tl.play() : tl.reverse();
 });

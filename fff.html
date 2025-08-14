@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSAP Hamburger Toggle Menu</title>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Montserrat", sans-serif; }
+
+  header {
+    position: fixed;
+    width:100%;
+    top:0; left:0;
+    z-index:1000;
+    background:#000;
+    color:#fff;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  .menu-btn {
+    width:30px; height:20px;
+    position:relative; cursor:pointer;
+  }
+
+  .menu-btn span, .menu-btn::before, .menu-btn::after {
+    content:'';
+    position:absolute;
+    width:100%; height:4px;
+    background:#fff;
+    transition: all 0.4s;
+  }
+
+  .menu-btn span { top:8px; }
+  .menu-btn::before { top:0; }
+  .menu-btn::after { top:16px; }
+
+  nav {
+    position: fixed;
+    top:0; right:-100%;
+    width:100%; height:100vh;
+    background:#111;
+    display:flex; flex-direction:column;
+    justify-content:center; align-items:center;
+  }
+
+  nav ul { list-style:none; text-align:center; }
+  nav ul li { margin:20px 0; }
+  nav ul li a {
+    text-decoration:none;
+    font-size:2em;
+    color:#fff;
+    opacity:0; pointer-events:none;
+  }
+
+  nav h2 {
+    position:absolute;
+    top:30px; left:30px;
+    font-size:2em;
+    opacity:0;
+  }
+  /* Hamburger active state */
+  .menu-btn.active span { transform: rotate(45deg); top:8px; }
+  .menu-btn.active::before { transform: rotate(135deg); top:8px; }
+  .menu-btn.active::after { transform: rotate(135deg); top:8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>My Portfolio</h1>
+  <div class="menu-btn"><span></span></div>
+</header>
+
+<nav>
+  <h2>Logo</h2>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Projects</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script>
+const menuBtn = document.querySelector('.menu-btn');
+const nav = document.querySelector('nav');
+const links = document.querySelectorAll('nav ul li a');
+const navTitle = document.querySelector('nav h2');
+
+let menuOpen = false;
+
+const tl = gsap.timeline({ defaults: { duration:0.6, ease:"power3.inOut" }, paused:true });
+
+tl.to(nav, { right:0 })
+  .to(links, { opacity:1, pointerEvents:"all", stagger:0.2 }, "-=0.4")
+  .to(navTitle, { opacity:1 }, "-=0.4");
+
+menuBtn.addEventListener('click', () => {
+  menuOpen = !menuOpen;
+  menuBtn.classList.toggle('active');
+  menuOpen ? tl.play() : tl.reverse();
+});
+</script>
+
+</body>
+</html>

@@ -280,6 +280,111 @@ li:hover .iconShoppingCart {
   background-image: url('https://rassweiler-it.de/images/rassweiler-it_icon_shopping-cart_white_hollow.png');
 }
 
+/* ================================= */
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  color: #fff;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-btn {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  /* cursor: pointer; */
+}
+
+.menu-btn span,
+.menu-btn::before,
+.menu-btn::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: #fff;
+  transition: all 0.4s;
+}
+
+.menu-btn span {
+  top: 8px;
+}
+
+.menu-btn::before {
+  top: 0;
+}
+
+.menu-btn::after {
+  top: 16px;
+}
+
+nav {
+  position: fixed;
+  top: 90px;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+nav ul {
+  list-style: none;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  padding: 40px 0 80px ;
+  overflow: scroll;
+}
+
+nav ul li {
+  margin: 20px 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 2em;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+}
+
+nav h2 {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-size: 2em;
+  opacity: 0;
+}
+
+/* Hamburger active state */
+.menu-btn.active span {
+  transform: rotate(45deg);
+  top: 8px;
+}
+
+.menu-btn.active::before {
+  transform: rotate(135deg);
+  top: 8px;
+}
+
+.menu-btn.active::after {
+  transform: rotate(135deg);
+  top: 8px;
+}
+
+/* ========================= */
 #universe-banner {
   position: relative;
   height: 100vh;
@@ -1264,9 +1369,9 @@ canvas#starfield {
     /* top */
     100% 100px,
     /* bottom */
-    10px 100%,
+    10% 100%,
     /* left */
-    50px 100%,
+    10% 100%,
     /* right */
     24px 24px;
   /* pattern */
@@ -1276,7 +1381,7 @@ canvas#starfield {
     left,
     right,
     left bottom;
-    clip-path: inset(0 round 30px);
+  clip-path: inset(0 round 130px);
 }
 
 .education-section {
@@ -1658,6 +1763,7 @@ canvas#starfield {
   justify-content: center;
   align-items: center; */
   background-color: #000;
+  padding: 40px 0;
 }
 
 .contact-heading {
@@ -1737,6 +1843,7 @@ canvas#starfield {
 
 .contactbox {
   position: relative;
+  margin: auto;
   width: 600px;
   height: 500px;
   background: #1c1c1c;
@@ -1798,6 +1905,7 @@ canvas#starfield {
 .right-info {
   color: #fff;
   max-width: 350px;
+  margin: auto;
 }
 
 .contact-info {
@@ -1834,4 +1942,79 @@ canvas#starfield {
 
 .contact-info a:hover {
   color: #00ffff;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 40px 0 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* max-width: 1200px; */
+  margin: 0 auto;
+}
+
+.footer-about,
+.footer-links,
+.footer-social {
+  flex: 1 1 250px;
+  margin: 20px;
+}
+
+.footer-about h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin: 10px 0;
+}
+
+.footer-links ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+  color: #00ffff;
+}
+
+.footer-social .social-icons a {
+  display: inline-block;
+  margin-right: 15px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-social .social-icons a:hover {
+  color: #00ffff;
+}
+
+.foorerlogo {
+  max-width: 80px;
+  background-color: #00ffff;
+  padding: 10px;
+  border-radius: 16px;
+  margin-bottom: 15px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #000;
+  font-size: 14px;
+  color: #aaa;
 }
