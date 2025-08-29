@@ -1,4 +1,3 @@
-// Typing effect
 let text = "Coming Soon";
 let i = 0;
 let deleting = false;
